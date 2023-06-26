@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  margin-top: 64px;
+  margin-bottom: 64px;
+`;
+
+
 export const Banner = styled.div`
   display: flex;
   height: 352px;
@@ -13,7 +23,7 @@ export const Banner = styled.div`
   background-image: var(
     --imagemhero,
     linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%),
-    url(${(props) => props.icon})
+    url(${(props) => props.img})
   );
   background-size: cover;
   background-position: center;
