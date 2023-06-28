@@ -11,7 +11,7 @@ const Header = () => {
         <Logo src={logo} />
         <SearchBar />
       </WrapperSerchBarLogo>
-      <ButtonOutline text={"Login"}></ButtonOutline>
+      <ButtonOutline text={"Login"} width={'182px'} height={'51px'}></ButtonOutline>
     </WrapperHeader>
   );
 };

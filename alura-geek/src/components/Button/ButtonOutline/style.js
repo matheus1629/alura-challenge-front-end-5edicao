@@ -9,7 +9,8 @@ export const Button = styled.button`
   gap: 10px;
   flex-shrink: 0;
   border: 1px solid var(--azul-100, #2a7ae4);
-
+  width: ${(props) => props.width};
+  height:  ${(props) => props.height};
   color: var(--azul-100, #2a7ae4);
   font-size: 16px;
   font-family: Raleway;
