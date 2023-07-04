@@ -8,14 +8,15 @@ export const Button = styled.button`
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
-  border: 1px solid var(--azul-100, #2a7ae4);
+  border: 1px solid ${(props) => props.theme["blue"]};
   width: ${(props) => props.width};
-  height:  ${(props) => props.height};
+  height: ${(props) => props.height};
   color: var(--azul-100, #2a7ae4);
   font-size: 16px;
   font-family: Raleway;
-  transition: 0.4s;
+  transition: 0.2s;
   &:hover {
-    background: var(--azul-20, #d4e4fa);
+    background: ${(props) => props.theme["light-blue-2"]};
+    cursor: pointer;
   }
 `;

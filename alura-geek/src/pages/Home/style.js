@@ -9,7 +9,6 @@ export const Section = styled.section`
   margin-bottom: 64px;
 `;
 
-
 export const Banner = styled.div`
   display: flex;
   height: 352px;
@@ -39,14 +38,14 @@ export const BannerContent = styled.div`
   background: transparent;
 
   & h1 {
-    color: var(--preto-branco, #fff);
+    color: ${(props) => props.theme["white"]};
     font-size: 52px;
     font-weight: 700;
     background: transparent;
   }
 
   & p {
-    color: var(--preto-branco, #fff);
+    color: ${(props) => props.theme["white"]};
     font-size: 22px;
     font-weight: 700;
     background: transparent;

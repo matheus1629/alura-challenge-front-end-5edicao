@@ -21,7 +21,7 @@ export const GalleryHeader = styled.div`
 `;
 
 export const GalleryTitle = styled.h1`
-  color: var(--preto-100, #464646);
+  color: ${(props) => props.theme["black-3"]};
   font-size: 32px;
   font-weight: 700;
 `;
@@ -34,7 +34,7 @@ export const LinkAllProducts = styled.a`
 `;
 
 export const TextAllProducts = styled.span`
-  color: var(--azul-100, #2a7ae4);
+  color: ${(props) => props.theme["blue"]};
   font-size: 16px;
   font-weight: 700;
 `;

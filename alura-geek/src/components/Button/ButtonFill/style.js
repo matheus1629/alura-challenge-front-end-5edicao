@@ -6,10 +6,14 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background: var(--azul-100, #2a7ae4);
+  background: ${(props) => props.theme["blue"]};
   border-width: 0px;
   width: ${(props) => props.width};
-  height:  ${(props) => props.height};
-  color: var(--preto-branco, #fff);
+  height: ${(props) => props.height};
+  color: ${(props) => props.theme["white"]};
   font-size: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

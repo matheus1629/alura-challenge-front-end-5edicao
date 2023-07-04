@@ -5,13 +5,13 @@ export const WrapperHeader = styled.header`
   padding: 32px 0px;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: ${(props) => props.theme["white"]};
   width: 78%;
   margin: auto;
 `;
 
 export const Logo = styled.img`
-  background-color: #fff;
+  background-color: ${(props) => props.theme["white"]};
 `;
 
 export const WrapperSerchBarLogo = styled.div`
@@ -19,4 +19,3 @@ export const WrapperSerchBarLogo = styled.div`
   align-items: center;
   gap: 32px;
 `;
-

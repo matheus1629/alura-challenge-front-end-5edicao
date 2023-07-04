@@ -6,7 +6,7 @@ export const WrapperFooter = styled.footer`
 `;
 
 export const Logo = styled.img`
-  background-color: #eaf2fd;
+  background-color: ${(props) => props.theme["light-blue"]};
 `;
 
 export const WrapperCompanyInfo = styled.div`
@@ -15,8 +15,7 @@ export const WrapperCompanyInfo = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-
-  background-color: #eaf2fd;
+  background-color: ${(props) => props.theme["light-blue"]};
 `;
 
 export const LeftDiv = styled.div`
@@ -25,7 +24,7 @@ export const LeftDiv = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-  background-color: #eaf2fd;
+  background-color: ${(props) => props.theme["light-blue"]};
 `;
 
 export const ContactForm = styled.form`
@@ -34,14 +33,14 @@ export const ContactForm = styled.form`
   align-items: flex-start;
   gap: 8px;
   flex: 1 0 0;
-  background-color: #eaf2fd;
+  background-color: ${(props) => props.theme["light-blue"]};
 `;
 
 export const ContactTitle = styled.h1`
-  color: var(--preto-100, #464646);
+  color: ${(props) => props.theme["black-3"]};
   font-size: 16px;
   font-weight: 700;
-  background-color: #eaf2fd;
+  background-color: ${(props) => props.theme["light-blue"]};
 `;
 
 export const WrapperInput = styled.label`
@@ -54,7 +53,7 @@ export const InputLabel = styled.label`
   position: absolute;
   top: 8px;
   left: 12px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme["white"]};
   padding: 0 5px;
   font-size: 12px;
   color: #999;
@@ -86,25 +85,23 @@ export const ContactInputMessage = styled.textarea`
   }
 `;
 
-
-
 export const FooterContent = styled.div`
   display: flex;
   width: 1136px;
   align-items: flex-start;
   gap: 112px;
-  background: var(--azul-10, #eaf2fd);
+  background: ${(props) => props.theme["light-blue"]};
 `;
 
 export const CompanyInfoLink = styled.a`
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  color: var(--preto-100, #464646);
+  color: ${(props) => props.theme["black-3"]};
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  background-color: #eaf2fd;
+  background-color: ${(props) => props.theme["light-blue"]};
 `;
 
 export const FooterInfo = styled.div`
@@ -114,7 +111,7 @@ export const FooterInfo = styled.div`
   align-items: center;
   gap: 115px;
   align-self: stretch;
-  background: var(--azul-10, #eaf2fd);
+  background: ${(props) => props.theme["light-blue"]};
 `;
 
 export const CompanyInfo = styled.div`
