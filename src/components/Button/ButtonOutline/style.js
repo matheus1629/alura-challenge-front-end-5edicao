@@ -19,4 +19,10 @@ export const Button = styled.button`
     background: ${(props) => props.theme["light-blue-2"]};
     cursor: pointer;
   }
+
+
+  
+  @media (max-width: 1440px) {
+    
+  }
 `;

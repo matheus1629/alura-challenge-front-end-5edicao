@@ -9,9 +9,15 @@ const Header = () => {
     <WrapperHeader>
       <WrapperSerchBarLogo>
         <Logo src={logo} />
-        <SearchBar />
+        <SearchBar
+        width={"var(--search-bar-width, 393px)"}
+        height={"var(--search-bar-height, 50px)"} />
       </WrapperSerchBarLogo>
-      <ButtonOutline text={"Login"} width={'182px'} height={'51px'}></ButtonOutline>
+      <ButtonOutline
+        text={"Login"}
+        width={"var(--button-width, 182px)"}
+        height={"51px"}
+      ></ButtonOutline>
     </WrapperHeader>
   );
 };

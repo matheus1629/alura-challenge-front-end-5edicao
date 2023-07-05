@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const SearchBarInput = styled.input`
   display: flex;
-  width: 393px;
-  height: 50px;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   padding: 8px 16px;
   border-radius: 20px;
   border-width: 0px;
