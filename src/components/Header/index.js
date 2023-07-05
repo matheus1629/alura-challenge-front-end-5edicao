@@ -10,13 +10,14 @@ const Header = () => {
       <WrapperSerchBarLogo>
         <Logo src={logo} />
         <SearchBar
-        width={"var(--search-bar-width, 393px)"}
-        height={"var(--search-bar-height, 50px)"} />
+          width={"var(--search-bar-width, 393px)"}
+          height={"var(--search-bar-height, 50px)"}
+        />
       </WrapperSerchBarLogo>
       <ButtonOutline
         text={"Login"}
         width={"var(--button-width, 182px)"}
-        height={"51px"}
+        height={"var(--button-height, 51px)"}
       ></ButtonOutline>
     </WrapperHeader>
   );

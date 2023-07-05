@@ -12,11 +12,11 @@ export const Section = styled.section`
 export const Banner = styled.div`
   display: flex;
   height: 352px;
-  padding: 32px;
+  padding:  2rem ;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
   background-image: url(${(props) => props.img});
   background-size: cover;
   background-position: center;
@@ -30,6 +30,10 @@ export const BannerContent = styled.div`
   align-items: flex-start;
   gap: 16px;
   background: transparent;
+
+  @media (max-width: 1280px) {
+    width: 100%;
+    }
 
   & h1 {
     color: ${(props) => props.theme["white"]};

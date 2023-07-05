@@ -33,6 +33,10 @@ export const SearchBarInput = styled.input`
   &::-ms-clear {
     display: none;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const MagnifierIcon = styled(ReactSVG)`
@@ -42,5 +46,10 @@ export const MagnifierIcon = styled(ReactSVG)`
 
   @media (max-width: 1280px) {
     left: 240px;
+  }
+
+  @media (max-width: 768px) {
+    position: initial;
+
   }
 `;
