@@ -17,20 +17,14 @@ export const Banner = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 16px;
-  align-self: stretch;
-
-  background-image: var(
-    --imagemhero,
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%),
-    url(${(props) => props.img})
-  );
+  background-image: url(${(props) => props.img});
   background-size: cover;
   background-position: center;
 `;
 
 export const BannerContent = styled.div`
   display: flex;
-  width: 1136px;
+  width: 80%;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
@@ -42,6 +36,10 @@ export const BannerContent = styled.div`
     font-size: 52px;
     font-weight: 700;
     background: transparent;
+
+    @media (max-width: 768px) {
+      font-size: 35px;
+    }
   }
 
   & p {
@@ -49,6 +47,10 @@ export const BannerContent = styled.div`
     font-size: 22px;
     font-weight: 700;
     background: transparent;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
   }
 `;
 

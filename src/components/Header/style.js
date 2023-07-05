@@ -9,27 +9,24 @@ export const WrapperHeader = styled.header`
   width: 1136px;
   min-height: 115px;
   margin: auto;
-
+  gap: 1rem;
+  
   @media (max-width: 1280px) {
     min-height: 4.5rem;
     width: 100%;
     padding: 1rem 2rem;
     --button-width: 166px;
-    --search-bar-width: 272px ;
+    --search-bar-width: 272px;
     --search-bar-height: 40px;
   }
 
   @media (max-width: 768px) {
     --button-width: 133px;
   }
-
-
 `;
 
 export const Logo = styled.img`
   background-color: ${(props) => props.theme["white"]};
-  
- 
 `;
 
 export const WrapperSerchBarLogo = styled.div`

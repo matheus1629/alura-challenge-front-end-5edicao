@@ -1,7 +1,15 @@
 import styled from "styled-components";
+import { ReactSVG } from "react-svg";
+
+export const SearchBarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+`;
 
 export const SearchBarInput = styled.input`
-  display: flex;
+  flex: 1;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   padding: 8px 16px;
@@ -9,10 +17,7 @@ export const SearchBarInput = styled.input`
   border-width: 0px;
   align-items: center;
   gap: 8px;
-  background: ${(props) => props.theme["black-1"]} url(${(props) => props.icon})
-    no-repeat right center;
-
-  background-position: calc(96%);
+  background-color: ${(props) => props.theme["black-1"]};
 
   &::placeholder {
     color: ${(props) => props.theme["black-2"]};
@@ -27,5 +32,15 @@ export const SearchBarInput = styled.input`
 
   &::-ms-clear {
     display: none;
+  }
+`;
+
+export const MagnifierIcon = styled(ReactSVG)`
+  position: absolute;
+  left: 355px;
+  z-index: 1;
+
+  @media (max-width: 1280px) {
+    left: 240px;
   }
 `;
