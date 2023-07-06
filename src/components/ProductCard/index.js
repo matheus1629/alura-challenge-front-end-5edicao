@@ -13,7 +13,6 @@ const ProductCard = ({
   productPrice,
   productImg,
 }) => {
-
   const priceBRL = productPrice.toLocaleString("pt-br", {
     style: "currency",
     currency: "BRL",

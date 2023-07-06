@@ -5,7 +5,7 @@ export const WrapperGallery = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  width: 100%;
+ 
 `;
 
 export const GalleryHeader = styled.div`
@@ -13,6 +13,14 @@ export const GalleryHeader = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 671px) {
+    max-width: 453px;
+  }
+
+  @media (max-width: 532px) {
+    max-width:297px;
+  }
 `;
 
 export const WrapperProducts = styled.div`

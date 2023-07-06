@@ -5,6 +5,18 @@ export const WrapperProduct = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    & > img {
+      opacity: 0.7;
+      transition: opacity 0.4s;
+    }
+  }
+
+  @media (max-width: 671px) {
+    margin-bottom: 12px;
+  }
 `;
 
 export const ImageProduct = styled.img`
@@ -28,7 +40,6 @@ export const ProductTitle = styled.h2`
   color: ${(props) => props.theme["black-3"]};
   font-size: 14px;
   font-weight: 500;
-  
 `;
 export const ProductPrice = styled.span`
   display: flex;
@@ -37,7 +48,6 @@ export const ProductPrice = styled.span`
   color: ${(props) => props.theme["black-3"]};
   font-size: 1rem;
   font-weight: 700;
-  
 `;
 export const ProductLink = styled.a`
   color: ${(props) => props.theme["blue"]};

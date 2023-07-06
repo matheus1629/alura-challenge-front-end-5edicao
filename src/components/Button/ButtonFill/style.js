@@ -15,5 +15,6 @@ export const Button = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: ${(props) => props.theme["button-fill-hover"]};
   }
 `;

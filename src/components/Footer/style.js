@@ -10,7 +10,7 @@ export const FooterInfo = styled.div`
   justify-content: center;
   align-items: center;
   gap: 115px;
-  background: ${(props) => props.theme["light-blue"]};
+  background-color: ${(props) => props.theme["light-blue"]};
 `;
 
 export const FooterContent = styled.div`
@@ -20,7 +20,7 @@ export const FooterContent = styled.div`
   width: 80%;
   align-items: flex-start;
   gap: 112px;
-  background: ${(props) => props.theme["light-blue"]};
+  background-color: ${(props) => props.theme["light-blue"]};
 
   @media (max-width: 1280px) {
     width: 100%;
@@ -69,12 +69,12 @@ export const WrapperCompanyInfo = styled.div`
 
 export const CompanyInfoLink = styled.a`
   color: ${(props) => props.theme["black-3"]};
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   background-color: ${(props) => props.theme["light-blue"]};
 
-  @media(max-width:768px){
+  @media (max-width: 768px) {
     margin: auto;
   }
 `;
@@ -94,7 +94,7 @@ export const ContactForm = styled.form`
 
 export const ContactTitle = styled.h1`
   color: ${(props) => props.theme["black-3"]};
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   background-color: ${(props) => props.theme["light-blue"]};
 `;
@@ -109,7 +109,6 @@ export const InputLabel = styled.label`
   position: absolute;
   top: 8px;
   left: 12px;
-  background-color: ${(props) => props.theme["white"]};
   font-size: 12px;
   color: #999;
 `;
@@ -146,23 +145,18 @@ export const CompanyInfo = styled.div`
   width: 254px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1rem;
 `;
 
 export const Contact = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1rem;
   flex: 1 0 0;
 `;
 
 export const FooterAuthor = styled.div`
-  display: flex;
-  padding: 32px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  align-self: stretch;
+  padding: 2rem;
   text-align: center;
   font-weight: 500;
 `;

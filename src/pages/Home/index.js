@@ -1,5 +1,5 @@
 import React from "react";
-import { Banner, BannerContent, Section } from "./style";
+import { Banner, BannerContent, Section, SectionContent } from "./style";
 import banner from "../../assets/banner.jpg";
 import ButtonFill from "../../components/Button/ButtonFill/index";
 import Gallery from "../../components/Gallery";
@@ -15,18 +15,20 @@ const Home = () => {
         </BannerContent>
       </Banner>
       <Section>
-        <Gallery
-          productCategory={"star-wars-products"}
-          galleryTitle={"Star Wars"}
-        />
-        <Gallery
-          productCategory={"consoles-products"}
-          galleryTitle={"Consoles"}
-        />
-        <Gallery
-          productCategory={"others-products"}
-          galleryTitle={"Diversos"}
-        />
+     <SectionContent>
+          <Gallery
+            productCategory={"star-wars-products"}
+            galleryTitle={"Star Wars"}
+          />
+          <Gallery
+            productCategory={"consoles-products"}
+            galleryTitle={"Consoles"}
+          />
+          <Gallery
+            productCategory={"others-products"}
+            galleryTitle={"Diversos"}
+          />
+     </SectionContent>
       </Section>
     </>
   );

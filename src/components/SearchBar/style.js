@@ -17,7 +17,7 @@ export const SearchBarInput = styled.input`
   border-width: 0px;
   align-items: center;
   gap: 8px;
-  background-color: ${(props) => props.theme["black-1"]};
+  background-color: ${(props) => props.theme["section-background"]};
 
   &::placeholder {
     color: ${(props) => props.theme["black-2"]};
