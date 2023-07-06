@@ -4,12 +4,21 @@ export const WrapperProduct = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 0.5rem;
 `;
 
 export const ImageProduct = styled.img`
   width: 176px;
-  height: 174px;
+  height: 180px;
+
+  @media (max-width: 1280px) {
+    width: 164px;
+    width: 168px;
+  }
+  @media (max-width: 768px) {
+    width: 140px;
+    height: 143px;
+  }
 `;
 
 export const ProductTitle = styled.h2`
@@ -19,17 +28,19 @@ export const ProductTitle = styled.h2`
   color: ${(props) => props.theme["black-3"]};
   font-size: 14px;
   font-weight: 500;
+  
 `;
 export const ProductPrice = styled.span`
   display: flex;
   flex-direction: column;
   align-self: stretch;
   color: ${(props) => props.theme["black-3"]};
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
+  
 `;
 export const ProductLink = styled.a`
   color: ${(props) => props.theme["blue"]};
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
 `;

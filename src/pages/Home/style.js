@@ -5,14 +5,21 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 64px;
-  margin-top: 64px;
-  margin-bottom: 64px;
+  max-width: 1136px;
+  width: 80%;
+  margin: 64px auto;
+ 
+
+  @media (max-width: 1280px) {
+    width: 100%;
+    padding: 0rem 2rem;
+  }
 `;
 
 export const Banner = styled.div`
   display: flex;
   height: 352px;
-  padding:  2rem ;
+  padding: 2rem 0rem;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
@@ -24,6 +31,7 @@ export const Banner = styled.div`
 
 export const BannerContent = styled.div`
   display: flex;
+  max-width: 1136px;
   width: 80%;
   flex-direction: column;
   justify-content: flex-end;
@@ -33,7 +41,8 @@ export const BannerContent = styled.div`
 
   @media (max-width: 1280px) {
     width: 100%;
-    }
+    padding: 2rem;
+  }
 
   & h1 {
     color: ${(props) => props.theme["white"]};

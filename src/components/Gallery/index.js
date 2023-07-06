@@ -12,8 +12,9 @@ import {
   WrapperGallery,
 } from "./style";
 import ProductCard from "../ProductCard";
+import MediaQuery from "react-responsive";
 
-const Gallery = ({ productCategory ,galleryTitle }) => {
+const Gallery = ({ productCategory, galleryTitle }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,10 +26,25 @@ const Gallery = ({ productCategory ,galleryTitle }) => {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        setProducts(data.slice(0, 6));
+        setProducts(data);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const renderCards = (number) => {
+    return (
+      products.length > 0 &&
+      products
+        .slice(0, number)
+        .map((product) => (
+          <ProductCard
+            productName={product.name}
+            productPrice={product.price}
+            productImg={product.img}
+          />
+        ))
+    );
+  };
 
   return (
     <WrapperGallery>
@@ -40,14 +56,17 @@ const Gallery = ({ productCategory ,galleryTitle }) => {
         </LinkAllProducts>
       </GalleryHeader>
       <WrapperProducts>
-        {products.length > 0 &&
-          products.map((product) => (
-            <ProductCard
-            productName={product.name}
-              productPrice={product.price}
-              productImg={product.img}
-            />
-          ))}
+        <MediaQuery minWidth={1280}>{renderCards(6)}</MediaQuery>
+        <MediaQuery minWidth={1015} maxWidth={1279}>
+          {renderCards(5)}
+        </MediaQuery>
+        <MediaQuery minWidth={672} maxWidth={1014}>
+          {renderCards(4)}
+        </MediaQuery>
+        <MediaQuery minWidth={361} maxWidth={671}>
+          {renderCards(6)}
+        </MediaQuery>
+        <MediaQuery maxWidth={360}>{renderCards(2)}</MediaQuery>
       </WrapperProducts>
     </WrapperGallery>
   );

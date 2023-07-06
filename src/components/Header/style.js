@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const WrapperHeader = styled.header`
   display: flex;
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.theme["white"]};
+  max-width: 1136px;
   width: 80%;
   min-height: 115px;
   margin: auto;
   gap: 1rem;
 
   @media (max-width: 1280px) {
+    padding: 1rem 2rem;
     min-height: 4.5rem;
     width: 100%;
     --button-width: 166px;
