@@ -31,8 +31,8 @@ const Footer = () => {
     <WrapperFooter>
       <FooterInfo>
         <FooterContent>
-          <Logo src={logo} />
           <LeftDiv>
+          <Logo src={logo} />
             <WrapperCompanyInfo>
               <CompanyInfoLink>Quem somos nós</CompanyInfoLink>
               <CompanyInfoLink>Política de privacidade</CompanyInfoLink>

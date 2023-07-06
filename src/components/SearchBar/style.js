@@ -43,6 +43,7 @@ export const MagnifierIcon = styled(ReactSVG)`
   position: absolute;
   left: 355px;
   z-index: 1;
+  cursor: pointer;
 
   @media (max-width: 1280px) {
     left: 240px;
