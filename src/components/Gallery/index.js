@@ -12,13 +12,20 @@ import {
   WrapperGallery,
 } from "./style";
 import ProductCard from "../ProductCard";
-import MediaQuery from "react-responsive";
+import { useLocation } from "react-router-dom";
 
-const Gallery = ({ productCategory, galleryTitle }) => {
+const Gallery = ({
+  productCategory,
+  galleryTitle,
+  wrapperStyle,
+  numberOfCards,
+  linkComponent,
+}) => {
   const [products, setProducts] = useState([]);
+  const location = useLocation()
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${productCategory}`, {
+    fetch(`http://localhost:5000/products${productCategory}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -50,23 +57,10 @@ const Gallery = ({ productCategory, galleryTitle }) => {
     <WrapperGallery>
       <GalleryHeader>
         <GalleryTitle>{galleryTitle}</GalleryTitle>
-        <LinkAllProducts>
-          <TextAllProducts>Ver Tudo</TextAllProducts>
-          <ArrowIcon icon={arrow} />
-        </LinkAllProducts>
+       {linkComponent}
       </GalleryHeader>
-      <WrapperProducts>
-        <MediaQuery minWidth={1280}>{renderCards(6)}</MediaQuery>
-        <MediaQuery minWidth={1015} maxWidth={1279}>
-          {renderCards(5)}
-        </MediaQuery>
-        <MediaQuery minWidth={672} maxWidth={1014}>
-          {renderCards(4)}
-        </MediaQuery>
-        <MediaQuery minWidth={361} maxWidth={671}>
-          {renderCards(6)}
-        </MediaQuery>
-        <MediaQuery maxWidth={360}>{renderCards(2)}</MediaQuery>
+      <WrapperProducts style={wrapperStyle}>
+        {renderCards(numberOfCards)}
       </WrapperProducts>
     </WrapperGallery>
   );

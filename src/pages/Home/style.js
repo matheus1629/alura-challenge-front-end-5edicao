@@ -77,3 +77,24 @@ export const BannerContent = styled.div`
 `;
 
 export const BannerTitle = styled.h1``;
+
+export const LinkAllProducts = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+`;
+
+
+export const TextAllProducts = styled.span`
+  color: ${(props) => props.theme["blue"]};
+  font-size: 1rem;
+  font-weight: 700;
+`;
+
+export const ArrowIcon = styled.span`
+  background-image: url(${(props) => props.icon});
+  width: 1.5rem;
+  height: 1.5rem;
+`;
+

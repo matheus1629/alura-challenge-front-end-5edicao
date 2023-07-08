@@ -5,7 +5,7 @@ export const WrapperGallery = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
- 
+  max-width: 1136px;
 `;
 
 export const GalleryHeader = styled.div`
@@ -19,7 +19,7 @@ export const GalleryHeader = styled.div`
   }
 
   @media (max-width: 532px) {
-    max-width:297px;
+    max-width: 297px;
   }
 `;
 
@@ -41,23 +41,4 @@ export const GalleryTitle = styled.h1`
   @media (max-width: 1280px) {
     font-size: 22px;
   }
-`;
-
-export const LinkAllProducts = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-`;
-
-export const TextAllProducts = styled.span`
-  color: ${(props) => props.theme["blue"]};
-  font-size: 1rem;
-  font-weight: 700;
-`;
-
-export const ArrowIcon = styled.span`
-  background-image: url(${(props) => props.icon});
-  width: 1.5rem;
-  height: 1.5rem;
 `;

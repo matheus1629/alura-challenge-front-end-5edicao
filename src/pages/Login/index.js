@@ -49,6 +49,7 @@ const Login = () => {
           text={"Entrar"}
           width={"var(--button-width, 423px)"}
           height={"var(--button-height, 62px)"}
+          to='/products'
         />
       </LoginForm>
     </Section>
