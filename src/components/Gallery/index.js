@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import arrow from "../../assets/Icons/arrow-back.svg";
-
 import {
   GalleryTitle,
   WrapperProducts,
   GalleryHeader,
-  LinkAllProducts,
-  TextAllProducts,
-  ArrowIcon,
   WrapperGallery,
 } from "./style";
 import ProductCard from "../ProductCard";
@@ -22,7 +17,6 @@ const Gallery = ({
   linkComponent,
 }) => {
   const [products, setProducts] = useState([]);
-  const location = useLocation()
 
   useEffect(() => {
     fetch(`http://localhost:5000/products${productCategory}`, {
@@ -48,6 +42,7 @@ const Gallery = ({
             productName={product.name}
             productPrice={product.price}
             productImg={product.img}
+            productId={product.id}
           />
         ))
     );
@@ -57,7 +52,7 @@ const Gallery = ({
     <WrapperGallery>
       <GalleryHeader>
         <GalleryTitle>{galleryTitle}</GalleryTitle>
-       {linkComponent}
+        {linkComponent}
       </GalleryHeader>
       <WrapperProducts style={wrapperStyle}>
         {renderCards(numberOfCards)}

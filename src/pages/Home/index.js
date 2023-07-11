@@ -3,10 +3,10 @@ import {
   ArrowIcon,
   Banner,
   BannerContent,
-  LinkAllProducts,
   Section,
   SectionContent,
-  TextAllProducts,
+  Text,
+  LinkWrapper,
 } from "./style";
 import banner from "../../assets/banner.jpg";
 import ButtonFill from "../../components/Button/ButtonFill/index";
@@ -42,10 +42,10 @@ const Home = () => {
   };
 
   const LinkAllProductsComponent = (
-    <LinkAllProducts>
-      <TextAllProducts>Ver Tudo</TextAllProducts>
+    <LinkWrapper>
+      <Text>Ver Tudo</Text>
       <ArrowIcon icon={arrow} />
-    </LinkAllProducts>
+    </LinkWrapper>
   );
 
   return (

@@ -1,4 +1,6 @@
 import React from "react";
+import StyledLink from "../../components/Link/style";
+
 import {
   ImageProduct,
   WrapperProduct,
@@ -9,6 +11,7 @@ import {
 
 const ProductCard = ({
   galleryTitle,
+  productId,
   productName,
   productPrice,
   productImg,
@@ -19,14 +22,14 @@ const ProductCard = ({
   });
 
   return (
-    <>
+    <StyledLink to={`/productdetails/${productId}`}>
       <WrapperProduct galleryTitle={galleryTitle}>
         <ImageProduct src={productImg} />
         <ProductTitle>{productName}</ProductTitle>
         <ProductPrice>{priceBRL}</ProductPrice>
         <ProductLink>Ver Produto</ProductLink>
       </WrapperProduct>
-    </>
+    </StyledLink>
   );
 };
 

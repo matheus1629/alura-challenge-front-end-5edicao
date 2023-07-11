@@ -12,9 +12,10 @@ export const Button = styled.button`
   height: ${(props) => props.height};
   color: ${(props) => props.theme["white"]};
   font-size: 16px;
-
+  transition: 0.3s;
+  cursor: pointer;
   &:hover {
-    cursor: pointer;
+    
     background-color: ${(props) => props.theme["button-fill-hover"]};
   }
 `;

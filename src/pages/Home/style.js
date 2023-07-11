@@ -78,7 +78,7 @@ export const BannerContent = styled.div`
 
 export const BannerTitle = styled.h1``;
 
-export const LinkAllProducts = styled.a`
+export const LinkWrapper = styled.a`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -86,7 +86,7 @@ export const LinkAllProducts = styled.a`
 `;
 
 
-export const TextAllProducts = styled.span`
+export const Text = styled.span`
   color: ${(props) => props.theme["blue"]};
   font-size: 1rem;
   font-weight: 700;

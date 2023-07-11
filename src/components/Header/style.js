@@ -16,7 +16,7 @@ export const WrapperHeader = styled.header`
     padding: 1rem 2rem;
     min-height: 4.5rem;
     width: 100%;
-    --button-width: 166px;
+    --button-width: 185px;
     --search-bar-width: 272px;
     --search-bar-height: 40px;
   }
