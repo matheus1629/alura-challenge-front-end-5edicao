@@ -7,7 +7,6 @@ import {
   WrapperGallery,
 } from "./style";
 import ProductCard from "../ProductCard";
-import { useLocation } from "react-router-dom";
 
 const Gallery = ({
   productCategory,

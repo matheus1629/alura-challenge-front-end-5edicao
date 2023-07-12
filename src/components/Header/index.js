@@ -4,7 +4,6 @@ import SearchBar from "../SearchBar";
 import logo from "../../assets/logo.png";
 import ButtonOutline from "../Button/ButtonOutline";
 import { Link, useLocation } from "react-router-dom";
-import ButtonFill from "../Button/ButtonFill";
 
 const Header = () => {
   const location = useLocation();

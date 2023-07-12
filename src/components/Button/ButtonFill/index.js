@@ -2,10 +2,10 @@ import React from "react";
 import { Button } from "./style";
 import { Link } from "react-router-dom";
 
-const ButtonFill = ({ text, width, height, to }) => {
+const ButtonFill = ({ text, width, height, to, onClick }) => {
   return (
     <Link to={to}>
-      <Button width={width} height={height}>
+      <Button onClick={onClick} width={width} height={height}>
         {text}
       </Button>
     </Link>
