@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Section, SectionContent } from "./style";
+import {
+  ProductDescription,
+  ProductImg,
+  ProductInfo,
+  ProductPrice,
+  ProductTitle,
+  ProductWrapper,
+  Section,
+  SectionContent,
+} from "./style";
 import Gallery from "../../components/Gallery";
 import ButtonFill from "../../components/Button/ButtonFill";
 import { useParams } from "react-router-dom";
@@ -9,7 +18,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products${id}`, {
+    fetch(`http://localhost:5000/products/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -20,26 +29,31 @@ const ProductDetails = () => {
         setProduct(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
+  const priceBRL = product?.price.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
 
   return (
     <Section>
       <SectionContent>
-        <>{product.id}</>
-        <Gallery
-          productCategory={""}
-          galleryTitle={"Produtos similares"}
-          wrapperStyle={{ flexWrap: "wrap" }}
-          linkComponent={
-            <ButtonFill
-              text={"Adicionar produtos"}
-              width={"175px"}
-              height={"var(--button-height, 51px)"}
-              to={"/addproduct"}
-            />
-          }
-        />
+        <ProductWrapper>
+          <ProductImg src={product?.img} />
+          <ProductInfo>
+            <ProductTitle>{product?.name}</ProductTitle>
+            <ProductPrice>{priceBRL}</ProductPrice>
+            <ProductDescription>{product?.description}</ProductDescription>
+          </ProductInfo>
+        </ProductWrapper>
+        {product && (
+          <Gallery
+            productCategory={`?category=${product.category}&id_ne=${id}&_limit=6`}
+            galleryTitle={"Produtos similares"}
+            wrapperStyle={{ flexWrap: "wrap" }}
+          />
+        )}
       </SectionContent>
     </Section>
   );

@@ -12,9 +12,9 @@ import { useLocation } from "react-router-dom";
 const Gallery = ({
   productCategory,
   galleryTitle,
-  wrapperStyle,
   numberOfCards,
   linkComponent,
+  ...props
 }) => {
   const [products, setProducts] = useState([]);
 
@@ -30,7 +30,7 @@ const Gallery = ({
         setProducts(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [productCategory]);
 
   const renderCards = (number) => {
     return (
@@ -43,6 +43,7 @@ const Gallery = ({
             productPrice={product.price}
             productImg={product.img}
             productId={product.id}
+            key={product.id}
           />
         ))
     );
@@ -54,7 +55,7 @@ const Gallery = ({
         <GalleryTitle>{galleryTitle}</GalleryTitle>
         {linkComponent}
       </GalleryHeader>
-      <WrapperProducts style={wrapperStyle}>
+      <WrapperProducts style={props.wrapperStyle}>
         {renderCards(numberOfCards)}
       </WrapperProducts>
     </WrapperGallery>

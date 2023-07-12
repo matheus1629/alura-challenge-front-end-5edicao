@@ -31,7 +31,7 @@ export const WrapperProduct = styled.div`
 export const ImageProduct = styled.img`
   width: 176px;
   height: 180px;
-
+object-fit: cover;
   @media (max-width: 1280px) {
     width: 164px;
     width: 168px;
