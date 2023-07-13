@@ -132,7 +132,7 @@
     {
       "id": 1,
       "email": "jonh@email.com",
-      "senha": "123"
+      "password": "123"
     }
   ]
 }

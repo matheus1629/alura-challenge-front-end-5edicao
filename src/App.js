@@ -7,34 +7,29 @@ import Login from "./pages/Login";
 import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
 import ProductDetails from "./pages/ProductDetails";
-import { RequireAuth } from "react-auth-kit";
-
+import { RequireAuth, useIsAuthenticated } from "react-auth-kit";
 
 function App() {
+  const isAuthenticated = useIsAuthenticated()
   return (
-<>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          {/* <PrivateRoute
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+       <Route path="/login" element={<Login />} />
+        <Route
           path="/products"
-          component={Products}
-          loginPath="/login" // rota para redirecionar se o usuário não estiver autenticado
-        /> */}
-          <Route
-            path="/products"
-            element={
-              <RequireAuth loginPath="/login">
-                <Products />
-              </RequireAuth>
-            }
-          />
-          <Route path="/addproduct" element={<AddProduct />} />
-          <Route path="/productdetails/:id" element={<ProductDetails />} />
-        </Routes>
-        <Footer />
-</>
+          element={
+            <RequireAuth loginPath="/login">
+              <Products />
+            </RequireAuth>
+          }
+        />
+        <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/productdetails/:id" element={<ProductDetails />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import { useNavigate } from "react-router-dom";
-import { useSignIn, useAuthHeader, PrivateRoute } from "react-auth-kit";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useSignIn, useIsAuthenticated } from "react-auth-kit";
 import {
   Section,
   InputField,
@@ -17,8 +17,11 @@ import loginValidation from "./loginValidation";
 const Login = () => {
   const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
-  const signIn = useSignIn(); // usar o hook useSignIn
-  const authHeader = useAuthHeader(); // usar o hook useAuthHeader
+  const signIn = useSignIn();
+  const isAuthenticated = useIsAuthenticated();
+  console.log(isAuthenticated());
+
+
 
   const {
     register,
@@ -26,36 +29,45 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: joiResolver(loginValidation) });
 
-  const fetchUser = async (email, password) => {
+  if (isAuthenticated()) {
+    return <Navigate to="/products" replace />;
+  }
+  
+  const fetchUser = async (email) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/users?email=${email}&password=${password}`
+        `http://localhost:5000/users?email=${email}`
       );
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error(error);
+      console.error("error");
+      return [];
     }
   };
-  
 
   const onSubmit = async (data) => {
     console.log(data);
     const { email, password } = data;
-    const user = await fetchUser(email, password);
-    if (user.length > 0) {
-      // login bem sucedido
-      const token = user[0].token; // obter o token do usuário
+    const users = await fetchUser(email);
+
+    console.log(users);
+    console.log(users.length);
+
+    if (users.length === 0) {
+      return setLoginError("Email ou senha inválido");
+    }
+
+    if (users[0].email === email && users[0].password === password) {
+      const token = users[0].token;
       signIn({
         token: token,
-        expiresIn: 3600, // tempo em segundos que o token é válido
-        tokenType: "Bearer", // tipo do token
-        authState: { email: user[0].email }, // dados adicionais do usuário
-      }); // usar o hook useSignIn para fazer o login
-      navigate("/products"); // ir para a rota /products
-
+        expiresIn: 3600,
+        tokenType: "Bearer",
+        authState: { email: users[0].email },
+      });
+      navigate("/products");
     } else {
-      // login falhou
       setLoginError("Email ou senha inválido");
     }
   };
@@ -91,7 +103,7 @@ const Login = () => {
             type="password"
           ></InputField>
           {errors?.password && (
-            <p style={{ color: "red" }}>{errors.email.message}</p>
+            <p style={{ color: "red" }}>{errors.password.message}</p>
           )}
         </WrapperInput>
 
