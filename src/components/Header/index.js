@@ -4,9 +4,12 @@ import SearchBar from "../SearchBar";
 import logo from "../../assets/logo.png";
 import ButtonOutline from "../Button/ButtonOutline";
 import { Link, useLocation } from "react-router-dom";
+import { useIsAuthenticated, useSignOut } from "react-auth-kit";
 
 const Header = () => {
   const location = useLocation();
+  const isAuthenticated = useIsAuthenticated();
+  const signOut = useSignOut();
 
   return (
     <WrapperHeader>
@@ -20,9 +23,16 @@ const Header = () => {
         />
       </WrapperSerchBarLogo>
 
-      {location.pathname === "/" ? (
+      {location.pathname === "/" && !isAuthenticated() ? (
         <ButtonOutline
           text={"Login"}
+          width={"var(--button-width, 182px)"}
+          height={"var(--button-height, 51px)"}
+          to="/login"
+        />
+      ) : location.pathname === "/" && isAuthenticated() ? (
+        <ButtonOutline
+          text={"Menu administrador"}
           width={"var(--button-width, 182px)"}
           height={"var(--button-height, 51px)"}
           to="/login"
@@ -33,6 +43,14 @@ const Header = () => {
           width={"var(--button-width, 185px)"}
           height={"var(--button-height, 51px)"}
           to="/products"
+        />
+      ) : location.pathname === "/products" ? (
+        <ButtonOutline
+          text={"Logout"}
+          width={"var(--button-width, 185px)"}
+          height={"var(--button-height, 51px)"}
+          onClick={() => signOut()}
+          to="/"
         />
       ) : null}
     </WrapperHeader>
