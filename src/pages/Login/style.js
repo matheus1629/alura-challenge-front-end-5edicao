@@ -3,6 +3,7 @@ import ButtonFill from "../../components/Button/ButtonFill";
 
 export const Section = styled.section`
   padding: 92px;
+
   background-color: ${(props) => props.theme["section-background"]};
 `;
 
@@ -31,6 +32,7 @@ export const LoginForm = styled.form`
 
 export const TitleLogin = styled.h1`
   background-color: ${(props) => props.theme["section-background"]};
+  margin-bottom: 20px;
 `;
 
 export const WrapperInput = styled.label`
@@ -54,9 +56,24 @@ export const InputField = styled.input`
   padding: 10px;
   width: 100%;
   border-width: 0;
+
   background-color: ${(props) => props.theme["white"]};
 
   &:focus {
     outline: none;
   }
+`;
+
+export const InputError = styled.p`
+  color: red;
+  padding-top: 8px;
+  position: absolute;
+  margin-top: 65px;
+`;
+
+export const InvalidDataError = styled.p`
+  color: red;
+  position: absolute;
+  margin-top: 55px;
+  background-color: ${(props) => props.theme["section-background"]};
 `;

@@ -10,6 +10,8 @@ import {
   InputLabel,
   WrapperInput,
   LoginForm,
+  InputError,
+  InvalidDataError,
 } from "./style";
 import ButtonFill from "../../components/Button/ButtonFill/index";
 import loginValidation from "./loginValidation";
@@ -21,8 +23,6 @@ const Login = () => {
   const isAuthenticated = useIsAuthenticated();
   console.log(isAuthenticated());
 
-
-
   const {
     register,
     handleSubmit,
@@ -32,7 +32,7 @@ const Login = () => {
   if (isAuthenticated()) {
     return <Navigate to="/products" replace />;
   }
-  
+
   const fetchUser = async (email) => {
     try {
       const response = await fetch(
@@ -55,7 +55,7 @@ const Login = () => {
     console.log(users.length);
 
     if (users.length === 0) {
-      return setLoginError("Email ou senha inválido");
+      return setLoginError("Email ou senha inválido!");
     }
 
     if (users[0].email === email && users[0].password === password) {
@@ -68,7 +68,7 @@ const Login = () => {
       });
       navigate("/products");
     } else {
-      setLoginError("Email ou senha inválido");
+      setLoginError("Email ou senha inválido!");
     }
   };
 
@@ -78,7 +78,7 @@ const Login = () => {
     <Section>
       <LoginForm onSubmit={handleSubmit(onSubmit)}>
         <TitleLogin>Iniciar Sessão</TitleLogin>
-        {loginError && <p style={{ color: "red" }}>{loginError}</p>}
+        {loginError && <InvalidDataError>{loginError}</InvalidDataError>}
         <WrapperInput>
           <InputLabel htmlFor="email">Escreva seu email:</InputLabel>
           <InputField
@@ -88,9 +88,7 @@ const Login = () => {
             id="email"
             type="email"
           ></InputField>
-          {errors?.email && (
-            <p style={{ color: "red" }}>{errors.email.message}</p>
-          )}
+          {errors?.email && <InputError>{errors.email.message}</InputError>}
         </WrapperInput>
 
         <WrapperInput>
@@ -103,7 +101,7 @@ const Login = () => {
             type="password"
           ></InputField>
           {errors?.password && (
-            <p style={{ color: "red" }}>{errors.password.message}</p>
+            <InputError>{errors.password.message}</InputError>
           )}
         </WrapperInput>
 

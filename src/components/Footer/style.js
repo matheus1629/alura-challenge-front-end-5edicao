@@ -21,7 +21,6 @@ export const FooterContent = styled.div`
   align-items: flex-start;
   gap: 112px;
   background-color: ${(props) => props.theme["light-blue"]};
-
   @media (max-width: 1280px) {
     width: 100%;
     padding: 0rem 2rem;
@@ -103,6 +102,10 @@ export const WrapperInput = styled.label`
   position: relative;
   gap: 7px;
   width: 100%;
+
+  @media (max-width: 1280px) {
+    max-width: 400px;
+  }
 `;
 
 export const InputLabel = styled.label`
