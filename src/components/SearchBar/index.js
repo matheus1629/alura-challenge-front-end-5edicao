@@ -1,6 +1,7 @@
 import React from "react";
-import { MagnifierIcon, SearchBarInput, SearchBarWrapper } from "./style";
+import { SearchIcon, SearchBarInput, SearchBarWrapper } from "./style";
 import searchBarIcon from "../../assets/Icons/searchBarIcon.svg";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const SearchBar = ({ width, height }) => {
   return (
@@ -10,11 +11,11 @@ const SearchBar = ({ width, height }) => {
         type="search"
         name="search"
         id="search"
-        icon={searchBarIcon}
         width={width}
         height={height}
       ></SearchBarInput>
-      <MagnifierIcon src={searchBarIcon} />
+      <SearchIcon />
+      {/* <MagnifierIcon src={searchBarIcon} /> */}
     </SearchBarWrapper>
   );
 };

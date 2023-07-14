@@ -10,7 +10,6 @@ import {
   SectionContent,
 } from "./style";
 import Gallery from "../../components/Gallery";
-import ButtonFill from "../../components/Button/ButtonFill";
 import { useParams } from "react-router-dom";
 
 const ProductDetails = () => {

@@ -54,7 +54,7 @@ const Home = () => {
         <BannerContent>
           <h1>Dezembro Promocional</h1>
           <p>Produtos selecionados com 33% de desconto</p>
-          <ButtonFill text={"Ver Consoles"} width={"130px"} height={"51px"} />
+          <ButtonFill text={"Ver Consoles"} width={"130px"} height={"51px"} /* to={"/productdetails/"} *//>
         </BannerContent>
       </Banner>
       <Section>

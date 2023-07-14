@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactSVG } from "react-svg";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const SearchBarWrapper = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ export const SearchBarInput = styled.input`
   }
 `;
 
-export const MagnifierIcon = styled(ReactSVG)`
+export const SearchIcon = styled(AiOutlineSearch)`
   position: absolute;
   left: 355px;
   z-index: 1;
