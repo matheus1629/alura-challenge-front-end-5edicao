@@ -15,7 +15,7 @@ export const Button = styled.button`
   font-size: 16px;
   font-family: Raleway;
   transition: 0.3s;
-  
+
   &:hover {
     background: ${(props) => props.theme["light-blue-2"]};
     cursor: pointer;

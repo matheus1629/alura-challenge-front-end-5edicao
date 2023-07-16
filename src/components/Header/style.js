@@ -10,7 +10,6 @@ export const WrapperHeader = styled.header`
   width: 80%;
   min-height: 115px;
   margin: auto;
-  gap: 1rem;
 
   @media (max-width: 1280px) {
     padding: 1rem 2rem;
@@ -24,6 +23,9 @@ export const WrapperHeader = styled.header`
   @media (max-width: 768px) {
     --button-width: 133px;
     --button-height: 40px;
+    --search-bar-width: 50px;
+    gap: 0.5rem;
+    align-items: start;
   }
 `;
 
@@ -39,4 +41,9 @@ export const WrapperSerchBarLogo = styled.div`
   display: flex;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    // flex-direction: column;
+  }
 `;
