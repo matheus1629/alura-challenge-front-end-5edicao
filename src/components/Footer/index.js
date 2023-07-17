@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
+import { joiResolver } from "@hookform/resolvers/joi";
 import {
   FooterAuthor,
   FooterInfo,
@@ -16,23 +16,31 @@ import {
   ContactInputMessage,
   WrapperInput,
   ContactForm,
+  InputError,
 } from "./style";
 import logo from "../../assets/logo.png";
 import ButtonFill from "../Button/ButtonFill";
+import contactValidation from "./contactValidation";
 
 const Footer = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: joiResolver(contactValidation) });
 
+  const onSubmit = async (data) => {
+    console.log(data);
+
+  };
+
+  console.log(errors);
   return (
     <WrapperFooter>
       <FooterInfo>
         <FooterContent>
           <LeftDiv>
-          <Logo src={logo} />
+            <Logo src={logo} />
             <WrapperCompanyInfo>
               <CompanyInfoLink>Quem somos nós</CompanyInfoLink>
               <CompanyInfoLink>Política de privacidade</CompanyInfoLink>
@@ -42,19 +50,15 @@ const Footer = () => {
               <CompanyInfoLink>Anuncie aqui</CompanyInfoLink>
             </WrapperCompanyInfo>
           </LeftDiv>
-          <ContactForm
-            onSubmit={handleSubmit((data) => {
-              console.log(data);
-            })}
-          >
+          <ContactForm>
             <ContactTitle>Fale Conosco</ContactTitle>
             <WrapperInput>
-              <InputLabel htmlFor="nome">Nome</InputLabel>
+              <InputLabel htmlFor="name">Nome</InputLabel>
               <ContactInputName
-                id="nome"
+                id="name"
+                name="name"
                 type="text"
-                maxLength="60"
-                {...register("name", { required: true })}
+                {...register("name")}
               ></ContactInputName>
             </WrapperInput>
 
@@ -62,14 +66,22 @@ const Footer = () => {
               <InputLabel htmlFor="message">Escreva sua mensagem</InputLabel>
               <ContactInputMessage
                 id="message"
+                name="message"
                 type="textarea"
+                {...register("message")}
               ></ContactInputMessage>
             </WrapperInput>
+            {errors?.name || errors?.message ? (
+              <InputError>Por favor, preencha todos os campos</InputError>
+            ) : (
+              ""
+            )}
 
             <ButtonFill
               text={"Enviar Mensagem"}
               width={"165px"}
               height={"51px"}
+              onClick={handleSubmit(onSubmit)}
             />
           </ContactForm>
         </FooterContent>

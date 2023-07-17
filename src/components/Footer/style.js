@@ -129,6 +129,11 @@ export const ContactInputName = styled.input`
   }
 `;
 
+export const InputError = styled.p`
+  color: red;
+  background-color: ${(props) => props.theme["light-blue"]};
+`;
+
 export const ContactInputMessage = styled.textarea`
   padding: 25px 12px 7px 16px;
   width: 100%;
@@ -142,6 +147,8 @@ export const ContactInputMessage = styled.textarea`
     outline: none;
   }
 `;
+
+
 
 export const CompanyInfo = styled.div`
   display: flex;

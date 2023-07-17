@@ -51,9 +51,6 @@ const Login = () => {
     const { email, password } = data;
     const users = await fetchUser(email);
 
-    console.log(users);
-    console.log(users.length);
-
     if (users.length === 0) {
       return setLoginError("Email ou senha inválido!");
     }
@@ -76,7 +73,7 @@ const Login = () => {
 
   return (
     <Section>
-      <LoginForm onSubmit={handleSubmit(onSubmit)}>
+      <LoginForm >
         <TitleLogin>Iniciar Sessão</TitleLogin>
         {loginError && <InvalidDataError>{loginError}</InvalidDataError>}
         <WrapperInput>
