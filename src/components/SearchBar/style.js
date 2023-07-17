@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { HiOutlineSearch } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 export const SeachBarWrapper = styled.div`
   position: relative;
@@ -64,14 +65,11 @@ export const SearchIcon = styled(HiOutlineSearch)`
 
 export const SearchResultsList = styled.div`
   width: 100%;
-
   display: flex;
   flex-direction: column;
   border-radius: 20px;
   position: absolute;
   margin-top: -5px;
-  // padding-left: 15px;
-
   background-color: ${(props) => props.theme["section-background"]};
 `;
 
@@ -104,3 +102,19 @@ export const SearchResultName = styled.p`
 `;
 
 export const SearchResultPrice = styled.p``;
+
+export const SearchLink = styled(Link)`
+  color: ${(props) => props.theme["black-3"]};
+  border-radius: 20px;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+
+ 
+`;

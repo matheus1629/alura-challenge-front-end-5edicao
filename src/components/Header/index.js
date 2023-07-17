@@ -23,14 +23,18 @@ const Header = () => {
         />
       </WrapperSerchBarLogo>
 
-      {location.pathname === "/" && !isAuthenticated() ? (
+      {(location.pathname === "/" ||
+        location.pathname.startsWith("/productdetails/")) &&
+      !isAuthenticated() ? (
         <ButtonOutline
           text={"Login"}
           width={"var(--button-width, 182px)"}
           height={"var(--button-height, 51px)"}
           to="/login"
         />
-      ) : location.pathname === "/" && isAuthenticated() ? (
+      ) : (location.pathname === "/" ||
+          location.pathname.startsWith("/productdetails/")) &&
+        isAuthenticated() ? (
         <ButtonOutline
           text={"Menu administrador"}
           width={"var(--button-width, 182px)"}

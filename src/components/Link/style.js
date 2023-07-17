@@ -12,6 +12,8 @@ const StyledLink = styled(Link)`
   &:active {
     text-decoration: none;
   }
+
+  
 `;
 
 export default (props) => <StyledLink {...props} />;

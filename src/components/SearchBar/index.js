@@ -8,11 +8,14 @@ import {
   SearchResultName,
   SearchResultPrice,
   SearchResultWrapper,
+  SearchLink,
 } from "./style";
+import { useLocation } from "react-router-dom";
 
 const SearchBar = ({ width, height }) => {
   const [input, setInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     fetch(`http://localhost:5000/products`, {
@@ -35,6 +38,10 @@ const SearchBar = ({ width, height }) => {
       });
   }, [input]);
 
+  useEffect(() => {
+    setSearchResults([]);
+  }, [location]);
+
   return (
     <SeachBarWrapper>
       <SearchBarInputWrapper width={width} height={height}>
@@ -52,15 +59,20 @@ const SearchBar = ({ width, height }) => {
       <SearchResultsList>
         {searchResults.map((result) => {
           return (
-            <SearchResultWrapper>
-              <SearchResultName>{result.name}</SearchResultName>
-              <SearchResultPrice>
-                {result.price.toLocaleString("pt-br", {
-                  style: "currency",
-                  currency: "BRL",
-                })}
-              </SearchResultPrice>
-            </SearchResultWrapper>
+            <SearchLink
+              classNeme="search-link"
+              to={`/productdetails/${result.id}`}
+            >
+              <SearchResultWrapper>
+                <SearchResultName>{result.name}</SearchResultName>
+                <SearchResultPrice>
+                  {result.price.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </SearchResultPrice>
+              </SearchResultWrapper>
+            </SearchLink>
           );
         })}
       </SearchResultsList>
