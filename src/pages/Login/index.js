@@ -21,7 +21,6 @@ const Login = () => {
   const navigate = useNavigate();
   const signIn = useSignIn();
   const isAuthenticated = useIsAuthenticated();
-  console.log(isAuthenticated());
 
   const {
     register,

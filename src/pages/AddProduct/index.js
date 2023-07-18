@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
+import { joiResolver } from "@hookform/resolvers/joi";
 import {
   Section,
   TitleForm,
@@ -9,13 +11,48 @@ import {
   AddProductForm,
 } from "./style";
 import ButtonFill from "../../components/Button/ButtonFill/index";
+import addProductValidation from "./addProductValidation";
 
 const AddProduct = () => {
+  const location = useLocation();
   const {
+    reset,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolvers: joiResolver(addProductValidation) });
+
+  let fileBase64 = "";
+  const onSubmit = async (data) => {
+    const file = data.file[0];
+    const reader = new FileReader();
+
+    const readFile = () => {
+      return new Promise((resolve, reject) => {
+        reader.onloadend = () => {
+          resolve(reader.result);
+        };
+        reader.onerror = () => {
+          reject(reader.error);
+        };
+        reader.readAsDataURL(file);
+      });
+    };
+
+    try {
+      fileBase64 = await readFile();
+    } catch (error) {
+      console.error(error);
+    }
+    console.log(fileBase64);
+
+
+    reset(); 
+  };
+
+  useEffect(() => {
+    reset();
+  }, [location, reset]);
 
   return (
     <Section>
@@ -26,47 +63,31 @@ const AddProduct = () => {
       >
         <TitleForm>Adicionar novo produto</TitleForm>
         <WrapperInput>
-          <InputLabel htmlFor="url">URL da imagem</InputLabel>
-          <Input
-            id="url"
-            type="url"
-            {...register("url", { required: true })}
-          ></Input>
+          <InputLabel htmlFor="file">URL da imagem</InputLabel>
+          <Input id="file" type="file" {...register("file")}></Input>
         </WrapperInput>
 
         <WrapperInput>
           <InputLabel htmlFor="category">Categoria</InputLabel>
-          <Input
-            id="category"
-            type="text"
-            {...register("category", { required: true })}
-          ></Input>
+          <Input id="category" type="text" {...register("category")}></Input>
         </WrapperInput>
 
         <WrapperInput>
           <InputLabel htmlFor="name">Nome do produto</InputLabel>
-          <Input
-            id="name"
-            type="text"
-            {...register("name", { required: true })}
-          ></Input>
+          <Input id="name" type="text" {...register("name")}></Input>
         </WrapperInput>
 
         <WrapperInput>
           <InputLabel htmlFor="price">Preço do produto</InputLabel>
-          <Input
-            id="price"
-            type="number"
-            {...register("price", { required: true })}
-          ></Input>
+          <Input id="price" type="number" {...register("price")}></Input>
         </WrapperInput>
 
         <WrapperInput>
           <InputLabel htmlFor="description">Descrição do produto</InputLabel>
           <Input
             id="description"
-            type="text"
-            {...register("description", { required: true })}
+            type="textarea"
+            {...register("description")}
           ></Input>
         </WrapperInput>
 
@@ -74,6 +95,7 @@ const AddProduct = () => {
           text={"Adicionar produto"}
           width={"var(--button-width, 550px)"}
           height={"var(--button-height, 62px)"}
+          onClick={handleSubmit(onSubmit)}
         />
       </AddProductForm>
     </Section>

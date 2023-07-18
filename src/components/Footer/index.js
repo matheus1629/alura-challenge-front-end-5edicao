@@ -74,7 +74,6 @@ const Footer = () => {
                   <InputLabel htmlFor="name">Nome</InputLabel>
                   <ContactInputName
                     id="name"
-                    name="name"
                     type="text"
                     {...register("name")}
                   ></ContactInputName>
@@ -86,7 +85,6 @@ const Footer = () => {
                   </InputLabel>
                   <ContactInputMessage
                     id="message"
-                    name="message"
                     type="textarea"
                     {...register("message")}
                   ></ContactInputMessage>
