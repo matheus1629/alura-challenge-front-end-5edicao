@@ -148,8 +148,6 @@ export const ContactInputMessage = styled.textarea`
   }
 `;
 
-
-
 export const CompanyInfo = styled.div`
   display: flex;
   width: 254px;
