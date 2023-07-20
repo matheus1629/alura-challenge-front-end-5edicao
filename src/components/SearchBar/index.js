@@ -18,7 +18,7 @@ const SearchBar = ({ width, height }) => {
   const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products`, {
+    fetch(`http://localhost:5000/products?name_like=${input}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -26,15 +26,11 @@ const SearchBar = ({ width, height }) => {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        const results = data.filter((user) => {
-          return (
-            input &&
-            user &&
-            user.name &&
-            user.name.toLowerCase().includes(input.toLocaleLowerCase())
-          );
-        });
-        setSearchResults(results.slice(0, 6));
+        if (input !== "") {
+          setSearchResults(data.slice(0, 6));
+        } else {
+          setSearchResults([]);
+        }
       });
   }, [input]);
 
@@ -42,6 +38,12 @@ const SearchBar = ({ width, height }) => {
     setSearchResults([]);
   }, [location]);
 
+  const searchMatch = (productName) => {
+    const regex = new RegExp(input, "i");
+    const highlightedName = productName.replace(regex, "<strong>$&</strong>");
+    return <span dangerouslySetInnerHTML={{ __html: highlightedName }} />;
+  };
+  
   return (
     <SeachBarWrapper>
       <SearchBarInputWrapper width={width} height={height}>
@@ -64,7 +66,7 @@ const SearchBar = ({ width, height }) => {
               to={`/productdetails/${result.id}`}
             >
               <SearchResultWrapper>
-                <SearchResultName>{result.name}</SearchResultName>
+                <SearchResultName>{searchMatch(result.name)}</SearchResultName>
                 <SearchResultPrice>
                   {result.price.toLocaleString("pt-br", {
                     style: "currency",
