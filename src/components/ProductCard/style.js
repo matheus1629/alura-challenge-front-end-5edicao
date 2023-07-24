@@ -31,7 +31,8 @@ export const WrapperProduct = styled.div`
 export const ImageProduct = styled.img`
   width: 176px;
   height: 180px;
-object-fit: cover;
+  object-fit: cover;
+  
   @media (max-width: 1280px) {
     width: 164px;
     width: 168px;
@@ -49,8 +50,8 @@ export const ProductTitle = styled.h2`
   color: ${(props) => props.theme["black-3"]};
   font-size: 14px;
   font-weight: 500;
-  white-space: nowrap; 
-  overflow: hidden; 
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const ProductPrice = styled.span`

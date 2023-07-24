@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import ButtonFill from "../../components/Button/ButtonFill";
 
 export const Section = styled.section`
   padding: 92px;
-
   background-color: ${(props) => props.theme["section-background"]};
 `;
 

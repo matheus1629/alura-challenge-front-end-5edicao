@@ -46,7 +46,6 @@ const Login = () => {
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
     const { email, password } = data;
     const users = await fetchUser(email);
 
@@ -68,8 +67,6 @@ const Login = () => {
     }
   };
 
-  console.log(errors);
-
   return (
     <Section>
       <LoginForm >
@@ -79,7 +76,6 @@ const Login = () => {
           <InputLabel htmlFor="email">Escreva seu email:</InputLabel>
           <InputField
             {...register("email")}
-            name="email"
             placeholder="email"
             id="email"
             type="email"
@@ -91,7 +87,6 @@ const Login = () => {
           <InputLabel htmlFor="password">Escreva sua senha:</InputLabel>
           <InputField
             {...register("password")}
-            name="password"
             placeholder="senha"
             id="password"
             type="password"

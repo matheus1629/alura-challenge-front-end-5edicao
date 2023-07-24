@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import ButtonFill from "../../components/Button/ButtonFill";
+import { FaImage, FaTrashAlt } from "react-icons/fa";
+import { TailSpin } from "react-loader-spinner";
 
 export const Section = styled.section`
   padding: 5.75rem;
@@ -46,7 +47,72 @@ export const TitleForm = styled.h1`
   }
 `;
 
-export const WrapperInput = styled.label`
+export const WrapperInputFile = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  height: 120px;
+  width: 100%;
+  border: 2px dashed ${(props) => props.theme["black-2"]};
+  padding: 10px;
+
+  & p {
+    font-size: 13px;
+    color: ${(props) => props.theme["black-2"]};
+  }
+`;
+
+export const FileName = styled.p`
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 50%;
+  text-overflow: ellipsis;
+`;
+
+export const TrahsIcon = styled(FaTrashAlt)`
+  color: ${(props) => props.theme["black-2"]};
+  font-size: 25px;
+  cursor: pointer;
+`;
+
+export const PreviewImg = styled.img`
+  max-width: 50%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const InputFile = styled.input`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+`;
+
+export const ButtonFile = styled.button`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  border: 0px;
+`;
+
+export const FileIcon = styled(FaImage)`
+  color: ${(props) => props.theme["black-2"]};
+  font-size: 30px;
+`;
+
+export const WrapperInput = styled.div`
   position: relative;
   gap: 7px;
   width: 100%;
@@ -82,4 +148,9 @@ export const InputField = styled.input`
   &:focus {
     outline: none;
   }
+`;
+
+export const InputError = styled.p`
+  color: red;
+  background-color: ${(props) => props.theme["section-background"]};
 `;
