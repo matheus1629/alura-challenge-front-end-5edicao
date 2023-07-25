@@ -1,8 +1,9 @@
 import React from "react";
-import { Section, SectionContent } from "./style";
+
 import Gallery from "../../components/Gallery";
 import ButtonFill from "../../components/Button/ButtonFill";
 
+import { Section, SectionContent } from "./style";
 const Products = () => {
   return (
     <Section>
@@ -16,7 +17,7 @@ const Products = () => {
               text={"Adicionar produtos"}
               width={"175px"}
               height={"var(--button-height, 51px)"}
-              to={'/addproduct'}
+              to={"/addproduct"}
             />
           }
         />

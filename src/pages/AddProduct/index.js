@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
+
 import { Controller, set, useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { NumericFormat } from "react-number-format";
 
+import ButtonFill from "../../components/Button/ButtonFill/index";
+import addProductValidation from "./addProductValidation";
+
 import {
   Section,
   TitleForm,
   InputLabel,
   WrapperInput,
-  Input,
+  TextField,
   AddProductForm,
   WrapperInputFile,
   ButtonFile,
@@ -21,11 +25,9 @@ import {
   FileName,
   SelectContainer,
   Select,
-  InputDescription,
+  TextAreaField,
   Option,
 } from "./style";
-import ButtonFill from "../../components/Button/ButtonFill/index";
-import addProductValidation from "./addProductValidation";
 
 const AddProduct = () => {
   const location = useLocation();
@@ -139,12 +141,12 @@ const AddProduct = () => {
           <InputLabel color={errors?.name ? "red" : ""} htmlFor="name">
             Nome do produto
           </InputLabel>
-          <Input
+          <TextField
             border={errors?.name ? "1px solid red" : ""}
             {...register("name")}
             id="name"
             type="text"
-          ></Input>
+          ></TextField>
         </WrapperInput>
 
         <WrapperInput>
@@ -157,7 +159,7 @@ const AddProduct = () => {
             render={({ field: { onChange, value } }) => (
               <NumericFormat
                 border={errors?.price ? "1px solid red" : ""}
-                customInput={Input}
+                customInput={TextField}
                 id="price"
                 type="text"
                 thousandSeparator="."
@@ -181,11 +183,11 @@ const AddProduct = () => {
           >
             Descrição do produto
           </InputLabel>
-          <InputDescription
+          <TextAreaField
             {...register("description")}
             id="description"
             border={errors?.description ? "1px solid red" : ""}
-          ></InputDescription>
+          ></TextAreaField>
         </WrapperInput>
 
         <ButtonFill

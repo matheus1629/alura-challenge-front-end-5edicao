@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import { ThemeProvider } from "styled-components";
-import { DefaultTheme } from "./themes/DefaultTheme";
 import { AuthProvider } from "react-auth-kit";
 import { BrowserRouter } from "react-router-dom";
+
+import "./index.css";
+import App from "./App";
+import { DefaultTheme } from "./themes/DefaultTheme";
+import { ThemeProvider } from "styled-components";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +17,6 @@ root.render(
         authName={"_auth"}
         cookieDomain={window.location.hostname}
         cookieSecure={false}
-        
       >
         <BrowserRouter>
           <App />

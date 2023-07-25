@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+
+import { useParams } from "react-router-dom";
+
+import Gallery from "../../components/Gallery";
+
 import {
   ProductDescription,
   ProductImg,
@@ -9,8 +14,6 @@ import {
   Section,
   SectionContent,
 } from "./style";
-import Gallery from "../../components/Gallery";
-import { useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const { id } = useParams();

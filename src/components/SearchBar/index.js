@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+
+import { useLocation } from "react-router-dom";
+
 import {
   SearchIcon,
   SearchBarInput,
@@ -10,7 +13,6 @@ import {
   SearchResultWrapper,
   SearchLink,
 } from "./style";
-import { useLocation } from "react-router-dom";
 
 const SearchBar = ({ width, height }) => {
   const [input, setInput] = useState("");
@@ -43,7 +45,7 @@ const SearchBar = ({ width, height }) => {
     const highlightedName = productName.replace(regex, "<strong>$&</strong>");
     return <span dangerouslySetInnerHTML={{ __html: highlightedName }} />;
   };
-  
+
   return (
     <SeachBarWrapper>
       <SearchBarInputWrapper width={width} height={height}>

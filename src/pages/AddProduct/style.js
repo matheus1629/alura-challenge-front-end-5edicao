@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FaImage, FaTrashAlt } from "react-icons/fa";
-import { TailSpin } from "react-loader-spinner";
 
 export const Section = styled.section`
   padding: 5.75rem;
@@ -116,7 +115,6 @@ export const WrapperInput = styled.div`
   position: relative;
   gap: 7px;
   width: 100%;
-  border: ${(props) => props.border || "none"};
 `;
 
 export const InputLabel = styled.label`
@@ -128,7 +126,7 @@ export const InputLabel = styled.label`
   color: ${(props) => props.color || ""};
 `;
 
-export const Input = styled.input`
+export const TextField = styled.input`
   padding: 20px 12px 7px 16px;
   width: 100%;
   height: 55px;
@@ -142,7 +140,7 @@ export const Input = styled.input`
   }
 `;
 
-export const InputDescription = styled.textarea`
+export const TextAreaField = styled.textarea`
   padding: 30px 12px 7px 16px;
   width: 100%;
   height: 100px;

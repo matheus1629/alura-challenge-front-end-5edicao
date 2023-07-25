@@ -33,10 +33,11 @@ export const TitleLogin = styled.h1`
   margin-bottom: 20px;
 `;
 
-export const WrapperInput = styled.label`
+export const WrapperInput = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 67px;
 
   & * {
     background-color: ${(props) => props.theme["section-background"]};
@@ -46,15 +47,15 @@ export const WrapperInput = styled.label`
 export const InputLabel = styled.label`
   font-size: 1rem;
   font-weight: 700;
-  color: ${(props) => props.theme["blue"]};
   padding-bottom: 10px;
+  color: ${(props) => props.color || props.theme["blue"]};
 `;
 
-export const InputField = styled.input`
+export const TextField = styled.input`
   padding: 10px;
   width: 100%;
   border-width: 0;
-
+  border: ${(props) => props.border || "none"};
   background-color: ${(props) => props.theme["white"]};
 
   &:focus {

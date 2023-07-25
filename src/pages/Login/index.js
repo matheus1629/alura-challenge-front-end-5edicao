@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+
 import { joiResolver } from "@hookform/resolvers/joi";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useSignIn, useIsAuthenticated } from "react-auth-kit";
+
+import ButtonFill from "../../components/Button/ButtonFill/index";
+import loginValidation from "./loginValidation";
+
 import {
   Section,
-  InputField,
+  TextField,
   TitleLogin,
   InputLabel,
   WrapperInput,
   LoginForm,
-  InputError,
   InvalidDataError,
 } from "./style";
-import ButtonFill from "../../components/Button/ButtonFill/index";
-import loginValidation from "./loginValidation";
 
 const Login = () => {
   const [loginError, setLoginError] = useState("");
@@ -69,31 +71,35 @@ const Login = () => {
 
   return (
     <Section>
-      <LoginForm >
+      <LoginForm>
         <TitleLogin>Iniciar Sessão</TitleLogin>
+
         {loginError && <InvalidDataError>{loginError}</InvalidDataError>}
+
         <WrapperInput>
-          <InputLabel htmlFor="email">Escreva seu email:</InputLabel>
-          <InputField
+          <InputLabel color={errors?.email ? "red" : ""} htmlFor="email">
+            Escreva seu email:
+          </InputLabel>
+          <TextField
+            border={errors?.email ? "1px solid red" : ""}
             {...register("email")}
             placeholder="email"
             id="email"
             type="email"
-          ></InputField>
-          {errors?.email && <InputError>{errors.email.message}</InputError>}
+          ></TextField>
         </WrapperInput>
 
         <WrapperInput>
-          <InputLabel htmlFor="password">Escreva sua senha:</InputLabel>
-          <InputField
+          <InputLabel color={errors?.password ? "red" : ""} htmlFor="password">
+            Escreva sua senha:
+          </InputLabel>
+          <TextField
+            border={errors?.password ? "1px solid red" : ""}
             {...register("password")}
             placeholder="senha"
             id="password"
             type="password"
-          ></InputField>
-          {errors?.password && (
-            <InputError>{errors.password.message}</InputError>
-          )}
+          ></TextField>
         </WrapperInput>
 
         <ButtonFill

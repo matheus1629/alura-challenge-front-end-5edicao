@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 
+import ProductCard from "../ProductCard";
+
 import {
   GalleryTitle,
   WrapperProducts,
   GalleryHeader,
   WrapperGallery,
 } from "./style";
-import ProductCard from "../ProductCard";
 
 const Gallery = ({
   productCategory,

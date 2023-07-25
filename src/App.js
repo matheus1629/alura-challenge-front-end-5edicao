@@ -1,4 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+
+import { RequireAuth } from "react-auth-kit";
+
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -6,7 +9,6 @@ import Login from "./pages/Login";
 import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
 import ProductDetails from "./pages/ProductDetails";
-import { RequireAuth } from "react-auth-kit";
 
 function App() {
   return (

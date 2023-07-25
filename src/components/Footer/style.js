@@ -113,19 +113,25 @@ export const InputLabel = styled.label`
   top: 8px;
   left: 12px;
   font-size: 12px;
-  color: #999;
+  color: ${props => props.color || '#999'};
+  
 `;
 
-export const ContactInputName = styled.input`
+export const TextField = styled.input`
   padding: 20px 12px 7px 16px;
   width: 100%;
   height: 55px;
   border-width: 0px;
   border-radius: 4px;
   background-color: ${(props) => props.theme["white"]};
+  border: ${(props) => props.borderColor || ""};
 
   &:focus {
     outline: none;
+  }
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 100px ${(props) => props.theme["white"]} inset;
   }
 `;
 
@@ -134,7 +140,7 @@ export const InputError = styled.p`
   background-color: ${(props) => props.theme["light-blue"]};
 `;
 
-export const ContactInputMessage = styled.textarea`
+export const TextAreaField = styled.textarea`
   padding: 25px 12px 7px 16px;
   width: 100%;
   height: 81px;
@@ -142,7 +148,7 @@ export const ContactInputMessage = styled.textarea`
   border-radius: 4px;
   resize: none;
   background-color: ${(props) => props.theme["white"]};
-
+  border: ${(props) => props.borderColor || ""};
   &:focus {
     outline: none;
   }

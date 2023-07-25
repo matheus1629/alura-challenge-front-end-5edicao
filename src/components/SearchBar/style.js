@@ -115,6 +115,4 @@ export const SearchLink = styled(Link)`
   &:active {
     text-decoration: none;
   }
-
- 
 `;

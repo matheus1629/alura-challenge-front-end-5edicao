@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
+
 import { useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
+
+import logo from "../../assets/logo.png";
+import ButtonFill from "../Button/ButtonFill";
+import contactValidation from "./contactValidation";
+
 import {
   FooterAuthor,
   FooterInfo,
@@ -11,17 +17,14 @@ import {
   WrapperCompanyInfo,
   LeftDiv,
   ContactTitle,
-  ContactInputName,
   FooterContent,
   InputLabel,
-  ContactInputMessage,
   WrapperInput,
   ContactForm,
   InputError,
+  TextField,
+  TextAreaField,
 } from "./style";
-import logo from "../../assets/logo.png";
-import ButtonFill from "../Button/ButtonFill";
-import contactValidation from "./contactValidation";
 
 const Footer = () => {
   const location = useLocation();
@@ -71,23 +74,29 @@ const Footer = () => {
             {!isSubmitSuccessful ? (
               <>
                 <WrapperInput>
-                  <InputLabel htmlFor="name">Nome</InputLabel>
-                  <ContactInputName
+                  <InputLabel color={errors?.name ? "red" : ""} htmlFor="name">
+                    Nome
+                  </InputLabel>
+                  <TextField
+                    borderColor={errors?.name ? "1px solid red" : ""}
                     id="name"
                     type="text"
                     {...register("name")}
-                  ></ContactInputName>
+                  ></TextField>
                 </WrapperInput>
 
                 <WrapperInput>
-                  <InputLabel htmlFor="message">
+                  <InputLabel
+                    color={errors?.message ? "red" : ""}
+                    htmlFor="message"
+                  >
                     Escreva sua mensagem
                   </InputLabel>
-                  <ContactInputMessage
+                  <TextAreaField
+                    borderColor={errors?.message ? "1px solid red" : ""}
                     id="message"
-                    type="textarea"
                     {...register("message")}
-                  ></ContactInputMessage>
+                  ></TextAreaField>
                 </WrapperInput>
                 {errors?.name || errors?.message ? (
                   <InputError>Por favor, preencha todos os campos.</InputError>

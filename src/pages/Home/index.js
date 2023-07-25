@@ -1,4 +1,12 @@
 import React from "react";
+
+import { useMediaQuery } from "react-responsive";
+
+import ButtonFill from "../../components/Button/ButtonFill/index";
+import Gallery from "../../components/Gallery";
+import banner from "../../assets/banner.jpg";
+import arrow from "../../assets/Icons/arrow-back.svg";
+
 import {
   ArrowIcon,
   Banner,
@@ -8,11 +16,6 @@ import {
   Text,
   LinkWrapper,
 } from "./style";
-import banner from "../../assets/banner.jpg";
-import ButtonFill from "../../components/Button/ButtonFill/index";
-import Gallery from "../../components/Gallery";
-import { useMediaQuery } from "react-responsive";
-import arrow from "../../assets/Icons/arrow-back.svg";
 
 const Home = () => {
   const sixCards = useMediaQuery({ query: "(min-width: 1280px)" });
@@ -54,7 +57,11 @@ const Home = () => {
         <BannerContent>
           <h1>Dezembro Promocional</h1>
           <p>Produtos selecionados com 33% de desconto</p>
-          <ButtonFill text={"Ver Consoles"} width={"130px"} height={"51px"} /* to={"/productdetails/"} *//>
+          <ButtonFill
+            text={"Ver Consoles"}
+            width={"130px"}
+            height={"51px"} /* to={"/productdetails/"} */
+          />
         </BannerContent>
       </Banner>
       <Section>

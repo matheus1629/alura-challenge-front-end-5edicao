@@ -6,7 +6,6 @@ export const WrapperGallery = styled.div`
   align-items: flex-start;
   gap: 1rem;
   max-width: 1136px;
-
 `;
 
 export const GalleryHeader = styled.div`
