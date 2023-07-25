@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaImage, FaTrashAlt } from "react-icons/fa";
+import { RxCheckCircled } from "react-icons/rx";
 
 export const Section = styled.section`
   padding: 5.75rem;
@@ -12,6 +13,40 @@ export const Section = styled.section`
   @media (max-width: 768px) {
     padding: 1rem;
   }
+`;
+
+export const ProductAddedMessage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  background-color: #65f065;
+  padding: 10px;
+  width: 550px;
+  height: 70px;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 40px;
+
+  & p {
+    background-color: #65f065;
+    font-weight: 500;
+  }
+
+  @media (max-width: 1280px) {
+    width: 450px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    width: 280px;
+  }
+`;
+
+export const CheckIcon = styled(RxCheckCircled)`
+  background-color: #65f065;
+  font-size: 35px;
 `;
 
 export const AddProductForm = styled.form`
@@ -54,7 +89,7 @@ export const WrapperInputFile = styled.div`
   position: relative;
   height: 120px;
   width: 100%;
-  border: 2px dashed ${(props) => props.borderColor || props.theme["black-2"]}; // use a propriedade ou a cor padrão
+  border: 2px dashed ${(props) => props.bordercolor || props.theme["black-2"]}; // use a propriedade ou a cor padrão
   padding: 10px;
 
   & p {
@@ -137,6 +172,10 @@ export const TextField = styled.input`
 
   &:focus {
     outline: none;
+  }
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 100px ${(props) => props.theme["white"]} inset;
   }
 `;
 

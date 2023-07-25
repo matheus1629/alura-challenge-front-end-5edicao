@@ -78,7 +78,7 @@ const Footer = () => {
                     Nome
                   </InputLabel>
                   <TextField
-                    borderColor={errors?.name ? "1px solid red" : ""}
+                    bordercolor={errors?.name ? "1px solid red" : ""}
                     id="name"
                     type="text"
                     {...register("name")}
@@ -93,7 +93,7 @@ const Footer = () => {
                     Escreva sua mensagem
                   </InputLabel>
                   <TextAreaField
-                    borderColor={errors?.message ? "1px solid red" : ""}
+                    bordercolor={errors?.message ? "1px solid red" : ""}
                     id="message"
                     {...register("message")}
                   ></TextAreaField>

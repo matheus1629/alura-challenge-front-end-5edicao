@@ -27,20 +27,26 @@ import {
   Select,
   TextAreaField,
   Option,
+  ProductAddedMessage,
+  CheckIcon,
 } from "./style";
 
 const AddProduct = () => {
   const location = useLocation();
   const [file, setFile] = useState([]);
   const [fileUploading, setFileUploading] = useState(false);
+  const [productAdded, setProductAdded] = useState(false);
 
   const {
     reset,
+    setValue,
     register,
     handleSubmit,
     control,
-    formState: { errors },
-  } = useForm({ resolver: joiResolver(addProductValidation) });
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({
+    resolver: joiResolver(addProductValidation),
+  });
 
   const uploadHandler = async (e) => {
     setFileUploading(true);
@@ -77,24 +83,37 @@ const AddProduct = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      reset();
+      setProductAdded(true);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    reset();
-  }, [location, reset]);
+    reset({ img: "", category: "", name: "", price: "", description: "" });
+    setFile([]);
+  }, [location, reset, isSubmitSuccessful]);
 
-  console.log(errors);
+  useEffect(() => {
+    setTimeout(() => {
+      setProductAdded(false);
+    }, 3000);
+  }, [productAdded]);
+
   return (
     <Section>
+      {productAdded && (
+        <ProductAddedMessage>
+          <p>Produto adicionado com sucesso!</p>
+          <CheckIcon />
+        </ProductAddedMessage>
+      )}
+
       <AddProductForm>
         <TitleForm>Adicionar novo produto</TitleForm>
 
         {file.length === 0 ? (
-          <WrapperInputFile borderColor={errors?.img ? "red" : ""}>
+          <WrapperInputFile bordercolor={errors?.img ? "red" : ""}>
             {!fileUploading ? (
               <>
                 <InputFile
@@ -120,7 +139,12 @@ const AddProduct = () => {
           <WrapperInputFile>
             <PreviewImg src={file[1]} />
             <FileName>{file[0]}</FileName>
-            <TrahsIcon onClick={() => setFile([])} />
+            <TrahsIcon
+              onClick={() => {
+                setFile([]);
+                setValue("img", undefined);
+              }}
+            />
           </WrapperInputFile>
         )}
 
@@ -154,8 +178,6 @@ const AddProduct = () => {
             Preço do produto
           </InputLabel>
           <Controller
-            control={control}
-            name="price"
             render={({ field: { onChange, value } }) => (
               <NumericFormat
                 border={errors?.price ? "1px solid red" : ""}
@@ -173,6 +195,8 @@ const AddProduct = () => {
                 }}
               />
             )}
+            control={control}
+            name="price"
           />
         </WrapperInput>
 

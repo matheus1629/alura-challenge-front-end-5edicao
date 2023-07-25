@@ -124,7 +124,7 @@ export const TextField = styled.input`
   border-width: 0px;
   border-radius: 4px;
   background-color: ${(props) => props.theme["white"]};
-  border: ${(props) => props.borderColor || ""};
+  border: ${(props) => props.bordercolor || ""};
 
   &:focus {
     outline: none;
@@ -148,7 +148,7 @@ export const TextAreaField = styled.textarea`
   border-radius: 4px;
   resize: none;
   background-color: ${(props) => props.theme["white"]};
-  border: ${(props) => props.borderColor || ""};
+  border: ${(props) => props.bordercolor || ""};
   &:focus {
     outline: none;
   }
