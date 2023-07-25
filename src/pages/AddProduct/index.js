@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, set, useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import { joiResolver } from "@hookform/resolvers/joi";
+import { NumericFormat } from "react-number-format";
+
 import {
   Section,
   TitleForm,
@@ -17,7 +19,10 @@ import {
   PreviewImg,
   TrahsIcon,
   FileName,
-  InputError,
+  SelectContainer,
+  Select,
+  InputDescription,
+  Option,
 } from "./style";
 import ButtonFill from "../../components/Button/ButtonFill/index";
 import addProductValidation from "./addProductValidation";
@@ -31,6 +36,7 @@ const AddProduct = () => {
     reset,
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm({ resolver: joiResolver(addProductValidation) });
 
@@ -38,7 +44,6 @@ const AddProduct = () => {
     setFileUploading(true);
     setFile([]);
     const inputFile = e.target.files[0];
-    console.log(inputFile);
 
     const reader = new FileReader();
 
@@ -62,30 +67,38 @@ const AddProduct = () => {
     }
   };
 
-  console.log(errors);
-
   const onSubmit = async (data) => {
-    console.log(data);
-    reset();
+    data = { ...data, img: file[1] };
+    try {
+      await fetch(`http://localhost:5000/products`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      reset();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
     reset();
   }, [location, reset]);
 
+  console.log(errors);
   return (
     <Section>
       <AddProductForm>
         <TitleForm>Adicionar novo produto</TitleForm>
 
         {file.length === 0 ? (
-          <WrapperInputFile>
+          <WrapperInputFile borderColor={errors?.img ? "red" : ""}>
             {!fileUploading ? (
               <>
                 <InputFile
-                  {...register("file", { onChange: uploadHandler })}
+                  {...register("img", { onChange: uploadHandler })}
                   accept=".svg,.jpg,.png"
-                  id="file"
+                  id="img"
                   type="file"
                 />
                 <ButtonFile>
@@ -95,7 +108,7 @@ const AddProduct = () => {
                     computador
                   </p>
                   <p>formatos suportados: PNG, JPG e SVG</p>
-                </ButtonFile>{" "}
+                </ButtonFile>
               </>
             ) : (
               <TailSpin height="70" width="70" color="#a2a2a2" radius="1" />
@@ -109,36 +122,70 @@ const AddProduct = () => {
           </WrapperInputFile>
         )}
 
-        <WrapperInput>
-          <InputLabel htmlFor="category">Categoria</InputLabel>
-          <Input {...register("category")} id="category" type="text"></Input>
-          {errors?.category && (
-            <InputError>{errors.category.message}</InputError>
-          )}
-        </WrapperInput>
+        <SelectContainer border={errors?.category ? "1px solid red" : ""}>
+          <Select
+            color={errors?.category ? "red" : ""}
+            {...register("category")}
+            id="category"
+          >
+            <Option value="">Selecione uma categoria</Option>
+            <Option value="star-wars">Star-Wars</Option>
+            <Option value="console">Console</Option>
+            <Option value="others">Others</Option>
+          </Select>
+        </SelectContainer>
 
         <WrapperInput>
-          <InputLabel htmlFor="name">Nome do produto</InputLabel>
-          <Input {...register("name")} id="name" type="text"></Input>
-          {errors?.name && <InputError>{errors.name.message}</InputError>}
-        </WrapperInput>
-
-        <WrapperInput>
-          <InputLabel htmlFor="price">Preço do produto</InputLabel>
-          <Input {...register("price")} id="price" type="number"></Input>
-          {errors?.price && <InputError>{errors.price.message}</InputError>}
-        </WrapperInput>
-
-        <WrapperInput>
-          <InputLabel htmlFor="description">Descrição do produto</InputLabel>
+          <InputLabel color={errors?.name ? "red" : ""} htmlFor="name">
+            Nome do produto
+          </InputLabel>
           <Input
+            border={errors?.name ? "1px solid red" : ""}
+            {...register("name")}
+            id="name"
+            type="text"
+          ></Input>
+        </WrapperInput>
+
+        <WrapperInput>
+          <InputLabel color={errors?.price ? "red" : ""} htmlFor="price">
+            Preço do produto
+          </InputLabel>
+          <Controller
+            control={control}
+            name="price"
+            render={({ field: { onChange, value } }) => (
+              <NumericFormat
+                border={errors?.price ? "1px solid red" : ""}
+                customInput={Input}
+                id="price"
+                type="text"
+                thousandSeparator="."
+                decimalSeparator=","
+                decimalScale={2}
+                prefix="R$ "
+                allowNegative={false}
+                value={value}
+                onValueChange={(values) => {
+                  onChange(values.floatValue);
+                }}
+              />
+            )}
+          />
+        </WrapperInput>
+
+        <WrapperInput>
+          <InputLabel
+            color={errors?.description ? "red" : ""}
+            htmlFor="description"
+          >
+            Descrição do produto
+          </InputLabel>
+          <InputDescription
             {...register("description")}
             id="description"
-            type="textarea"
-          ></Input>
-          {errors?.description && (
-            <InputError>{errors.description.message}</InputError>
-          )}
+            border={errors?.description ? "1px solid red" : ""}
+          ></InputDescription>
         </WrapperInput>
 
         <ButtonFill

@@ -90,7 +90,7 @@ const Footer = () => {
                   ></ContactInputMessage>
                 </WrapperInput>
                 {errors?.name || errors?.message ? (
-                  <InputError>Por favor, preencha todos os campos</InputError>
+                  <InputError>Por favor, preencha todos os campos.</InputError>
                 ) : (
                   ""
                 )}

@@ -55,7 +55,7 @@ export const WrapperInputFile = styled.div`
   position: relative;
   height: 120px;
   width: 100%;
-  border: 2px dashed ${(props) => props.theme["black-2"]};
+  border: 2px dashed ${(props) => props.borderColor || props.theme["black-2"]}; // use a propriedade ou a cor padrão
   padding: 10px;
 
   & p {
@@ -116,6 +116,7 @@ export const WrapperInput = styled.div`
   position: relative;
   gap: 7px;
   width: 100%;
+  border: ${(props) => props.border || "none"};
 `;
 
 export const InputLabel = styled.label`
@@ -124,6 +125,7 @@ export const InputLabel = styled.label`
   left: 12px;
   font-size: 12px;
   color: #999;
+  color: ${(props) => props.color || ""};
 `;
 
 export const Input = styled.input`
@@ -133,7 +135,22 @@ export const Input = styled.input`
   border-width: 0px;
   border-radius: 4px;
   background-color: ${(props) => props.theme["white"]};
+  border: ${(props) => props.border || "none"};
 
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const InputDescription = styled.textarea`
+  padding: 30px 12px 7px 16px;
+  width: 100%;
+  height: 100px;
+  resize: none;
+  border-width: 0px;
+  border-radius: 4px;
+  background-color: ${(props) => props.theme["white"]};
+  border: ${(props) => props.border || "none"};
   &:focus {
     outline: none;
   }
@@ -153,4 +170,27 @@ export const InputField = styled.input`
 export const InputError = styled.p`
   color: red;
   background-color: ${(props) => props.theme["section-background"]};
+`;
+
+export const SelectContainer = styled.div`
+  width: 50%;
+  align-self: self-start;
+  background-color: ${(props) => props.theme["section-background"]};
+  border: ${(props) => props.border || "none"};
+`;
+
+export const Select = styled.select`
+  width: 100%;
+  height: 55px;
+  border: none;
+  padding: 0 30px 0 15px;
+  background-color: ${(props) => props.theme["white"]};
+
+  &:first-child {
+    color: ${(props) => props.color || "none"};
+  }
+`;
+
+export const Option = styled.option`
+  color: ${(props) => props.theme["black"]};
 `;
