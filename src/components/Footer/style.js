@@ -113,8 +113,7 @@ export const InputLabel = styled.label`
   top: 8px;
   left: 12px;
   font-size: 12px;
-  color: ${props => props.color || '#999'};
-  
+  color: ${(props) => props.color || "#999"};
 `;
 
 export const TextField = styled.input`
@@ -167,6 +166,20 @@ export const Contact = styled.div`
   align-items: flex-start;
   gap: 1rem;
   flex: 1 0 0;
+`;
+
+export const MessageSendCard = styled.div`
+  display: inline-flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: ${(props) => props.theme["light-green"]};
+  border-width: 0px;
+  width: 185px;
+  height: 51px;
+  color: ${(props) => props.theme["white"]};
+  font-size: 16px;
 `;
 
 export const FooterAuthor = styled.div`

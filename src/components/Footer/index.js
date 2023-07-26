@@ -24,6 +24,7 @@ import {
   InputError,
   TextField,
   TextAreaField,
+  MessageSendCard,
 } from "./style";
 
 const Footer = () => {
@@ -111,12 +112,7 @@ const Footer = () => {
                 />
               </>
             ) : (
-              <ButtonFill
-                text={"Mensagem enviada!"}
-                width={"185px"}
-                height={"51px"}
-                style={{ backgroundColor: "#34b334", cursor: "auto" }}
-              />
+              <MessageSendCard>Mensagem enviada!</MessageSendCard>
             )}
           </ContactForm>
         </FooterContent>

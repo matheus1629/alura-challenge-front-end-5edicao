@@ -21,7 +21,7 @@ export const ProductAddedMessage = styled.div`
   justify-content: center;
   gap: 10px;
   font-size: 1.5rem;
-  background-color: #65f065;
+  background-color: ${(props) => props.theme["light-green"]};
   padding: 10px;
   width: 550px;
   height: 70px;
@@ -30,7 +30,7 @@ export const ProductAddedMessage = styled.div`
   margin-bottom: 40px;
 
   & p {
-    background-color: #65f065;
+    background-color: ${(props) => props.theme["light-green"]};
     font-weight: 500;
   }
 
@@ -45,7 +45,7 @@ export const ProductAddedMessage = styled.div`
 `;
 
 export const CheckIcon = styled(RxCheckCircled)`
-  background-color: #65f065;
+  background-color: ${(props) => props.theme["light-green"]};
   font-size: 35px;
 `;
 
