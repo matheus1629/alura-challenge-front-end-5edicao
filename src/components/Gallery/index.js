@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { TailSpin } from "react-loader-spinner";
+
 import ProductCard from "../ProductCard";
 
 import {
@@ -50,15 +52,21 @@ const Gallery = ({
   };
 
   return (
-    <WrapperGallery>
-      <GalleryHeader>
-        <GalleryTitle>{galleryTitle}</GalleryTitle>
-        {linkComponent}
-      </GalleryHeader>
-      <WrapperProducts style={props.wrapperStyle}>
-        {renderCards(numberOfCards)}
-      </WrapperProducts>
-    </WrapperGallery>
+    <>
+      {products.length > 0 ? (
+        <WrapperGallery>
+          <GalleryHeader>
+            <GalleryTitle>{galleryTitle}</GalleryTitle>
+            {linkComponent}
+          </GalleryHeader>
+          <WrapperProducts style={props.wrapperStyle}>
+            {renderCards(numberOfCards)}
+          </WrapperProducts>
+        </WrapperGallery>
+      ) : (
+        <TailSpin height="100" width="100" color="#a2a2a2" radius="1" />
+      )}
+    </>
   );
 };
 

@@ -60,26 +60,30 @@ const SearchBar = ({ width, height }) => {
 
         <SearchIcon />
       </SearchBarInputWrapper>
-      <SearchResultsList>
-        {searchResults.map((result) => {
-          return (
-            <SearchLink
-              classNeme="search-link"
-              to={`/productdetails/${result.id}`}
-            >
-              <SearchResultWrapper>
-                <SearchResultName>{searchMatch(result.name)}</SearchResultName>
-                <SearchResultPrice>
-                  {result.price.toLocaleString("pt-br", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                </SearchResultPrice>
-              </SearchResultWrapper>
-            </SearchLink>
-          );
-        })}
-      </SearchResultsList>
+      {searchResults.length > 0 && (
+        <SearchResultsList>
+          {searchResults.map((result) => {
+            return (
+              <SearchLink
+                classNeme="search-link"
+                to={`/productdetails/${result.id}`}
+              >
+                <SearchResultWrapper>
+                  <SearchResultName>
+                    {searchMatch(result.name)}
+                  </SearchResultName>
+                  <SearchResultPrice>
+                    {result.price.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </SearchResultPrice>
+                </SearchResultWrapper>
+              </SearchLink>
+            );
+          })}
+        </SearchResultsList>
+      )}
     </SeachBarWrapper>
   );
 };

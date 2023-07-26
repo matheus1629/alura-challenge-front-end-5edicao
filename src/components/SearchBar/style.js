@@ -71,6 +71,8 @@ export const SearchResultsList = styled.div`
   position: absolute;
   margin-top: -5px;
   background-color: ${(props) => props.theme["section-background"]};
+  z-index: 3;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 `;
 
 export const SearchResultWrapper = styled.div`
@@ -115,4 +117,6 @@ export const SearchLink = styled(Link)`
   &:active {
     text-decoration: none;
   }
+
+
 `;
