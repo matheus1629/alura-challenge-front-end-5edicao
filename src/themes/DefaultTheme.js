@@ -8,5 +8,5 @@ export const DefaultTheme = {
   "light-blue": "#eaf2fd",
   "light-blue-2": "#eaf2fd",
   "button-fill-hover": "#5595E9",
-  'light-green': "#53e553",
+  'light-green': "#6ce86c",
 };

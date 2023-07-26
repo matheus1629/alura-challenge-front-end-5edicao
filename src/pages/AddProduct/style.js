@@ -8,45 +8,14 @@ export const Section = styled.section`
 
   @media (max-width: 1280px) {
     padding: 2rem;
+    --message-card-width: 450px;
   }
 
   @media (max-width: 768px) {
     padding: 1rem;
+    --message-card-width: 280px;
+    --message-font-size: 1rem;
   }
-`;
-
-export const ProductAddedMessage = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1.5rem;
-  background-color: ${(props) => props.theme["light-green"]};
-  padding: 10px;
-  width: 550px;
-  height: 70px;
-  border-radius: 10px;
-  margin: auto;
-  margin-bottom: 40px;
-
-  & p {
-    background-color: ${(props) => props.theme["light-green"]};
-    font-weight: 500;
-  }
-
-  @media (max-width: 1280px) {
-    width: 450px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1rem;
-    width: 280px;
-  }
-`;
-
-export const CheckIcon = styled(RxCheckCircled)`
-  background-color: ${(props) => props.theme["light-green"]};
-  font-size: 35px;
 `;
 
 export const AddProductForm = styled.form`
@@ -62,12 +31,14 @@ export const AddProductForm = styled.form`
   @media (max-width: 1280px) {
     --button-width: 450px;
     --button-height: 40px;
+
     width: 450px;
   }
 
   @media (max-width: 768px) {
     --button-width: 280px;
     --button-height: 40px;
+
     width: 280px;
   }
 `;
@@ -87,7 +58,7 @@ export const WrapperInputFile = styled.div`
   align-items: center;
   gap: 10px;
   position: relative;
-  height: 120px;
+  height: 200px;
   width: 100%;
   border: 2px dashed ${(props) => props.bordercolor || props.theme["black-2"]}; // use a propriedade ou a cor padrão
   padding: 10px;
@@ -95,6 +66,11 @@ export const WrapperInputFile = styled.div`
   & p {
     font-size: 13px;
     color: ${(props) => props.theme["black-2"]};
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: 250px;
   }
 `;
 
@@ -112,9 +88,14 @@ export const TrahsIcon = styled(FaTrashAlt)`
 `;
 
 export const PreviewImg = styled.img`
-  max-width: 50%;
+  max-width: 65%;
   height: 100%;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    height: 70%;
+  }
 `;
 
 export const InputFile = styled.input`
@@ -218,7 +199,7 @@ export const InputError = styled.p`
 `;
 
 export const SelectContainer = styled.div`
-  width: 50%;
+  width: 100%;
   align-self: self-start;
   background-color: ${(props) => props.theme["section-background"]};
   border: ${(props) => props.border || "none"};

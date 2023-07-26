@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import ButtonFill from "../../components/Button/ButtonFill/index";
 import Gallery from "../../components/Gallery";
 import banner from "../../assets/banner.jpg";
-import arrow from "../../assets/Icons/arrow-back.svg";
+import StyledLink from "../../components/Link/style";
 
 import {
   ArrowIcon,
@@ -14,7 +14,6 @@ import {
   Section,
   SectionContent,
   Text,
-  LinkWrapper,
 } from "./style";
 
 const Home = () => {
@@ -44,11 +43,11 @@ const Home = () => {
       : null;
   };
 
-  const LinkAllProductsComponent = (
-    <LinkWrapper>
+  const LinkAllProductsComponent = ({ to }) => (
+    <StyledLink to={to}>
       <Text>Ver Tudo</Text>
-      <ArrowIcon icon={arrow} />
-    </LinkWrapper>
+      <ArrowIcon />
+    </StyledLink>
   );
 
   return (
@@ -70,24 +69,23 @@ const Home = () => {
             productCategory={"?category=star-wars&_limit=6"}
             galleryTitle={"Star Wars"}
             numberOfCards={numberOfCards()}
-            linkComponent={LinkAllProductsComponent}
+            linkComponent={<LinkAllProductsComponent to={"/allproducts/star-wars"} />}
           />
           <Gallery
             productCategory={"?category=console&_limit=6"}
             galleryTitle={"Consoles"}
             numberOfCards={numberOfCards()}
-            linkComponent={LinkAllProductsComponent}
+            linkComponent={<LinkAllProductsComponent to={"/allproducts/console"} />}
           />
           <Gallery
             productCategory={"?category=others&_limit=6"}
             galleryTitle={"Diversos"}
             numberOfCards={numberOfCards()}
-            linkComponent={LinkAllProductsComponent}
+            linkComponent={<LinkAllProductsComponent to={"/allproducts/others"} />}
           />
         </SectionContent>
       </Section>
     </>
   );
 };
-
 export default Home;

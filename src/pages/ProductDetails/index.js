@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 
+import { TailSpin } from "react-loader-spinner";
 import { useIsAuthenticated } from "react-auth-kit";
 import { useNavigate, useParams } from "react-router-dom";
 
+import StyledLink from "../../components/Link/style";
 import Gallery from "../../components/Gallery";
 
 import {
+  ArrowIcon,
   CheckIcon,
   DeleteProductWrapper,
   ProductAddedMessage,
@@ -17,8 +20,10 @@ import {
   ProductWrapper,
   Section,
   SectionContent,
+  Text,
   TrahsIcon,
 } from "./style";
+import MessageCard from "../../components/MessageCard";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -64,40 +69,61 @@ const ProductDetails = () => {
   return (
     <Section>
       <SectionContent>
-        {!productDeleted ? (
-          <ProductWrapper>
-            <ProductImg src={product?.img} />
-            <ProductInfo>
-              <ProductTitle>{product?.name}</ProductTitle>
-              <ProductPrice>{priceBRL}</ProductPrice>
-              <ProductDescription>{product?.description}</ProductDescription>
-              {isAuthenticated() ? (
-                <DeleteProductWrapper onClick={RemoveProduct}>
-                  <p>Excluir produto</p>
-                  <TrahsIcon />
-                </DeleteProductWrapper>
-              ) : (
-                ""
-              )}
-            </ProductInfo>
-          </ProductWrapper>
-        ) : (
-          <ProductAddedMessage>
-            <p>Produto deletado com sucesso!</p>
-            <CheckIcon />
-          </ProductAddedMessage>
-        )}
+        {product ? (
+          <>
+            {!productDeleted ? (
+              <ProductWrapper>
+                <ProductImg src={product?.img} />
 
-        {product && (
-          <Gallery
-            productCategory={`?category=${product.category}&id_ne=${id}&_limit=6`}
-            galleryTitle={"Produtos similares"}
-            wrapperStyle={{ flexWrap: "wrap" }}
-          />
+                <ProductInfo>
+                  <ProductTitle>{product?.name}</ProductTitle>
+                  <ProductPrice>{priceBRL}</ProductPrice>
+                  <ProductDescription>
+                    {product?.description}
+                  </ProductDescription>
+
+                  {isAuthenticated() ? (
+                    <DeleteProductWrapper onClick={RemoveProduct}>
+                      <p>Excluir produto</p>
+                      <TrahsIcon />
+                    </DeleteProductWrapper>
+                  ) : (
+                    ""
+                  )}
+                </ProductInfo>
+              </ProductWrapper>
+            ) : (
+              <MessageCard
+                text="Produto deletado com sucesso!!"
+                width={"var(--message-card-width, 550px)"}
+                height={"70px"}
+                fontSize={"var(--message-font-size, 1.5rem)"}
+                fontSizeIcon={"35px"}
+                margin={"20px auto "}
+              />
+            )}
+
+            {product && (
+              <Gallery
+                productCategory={`?category=${product.category}&id_ne=${id}&_limit=6`}
+                galleryTitle={"Produtos similares"}
+                wrapperStyle={{ flexWrap: "wrap" }}
+                linkComponent={
+                  <StyledLink to={`/allproducts/${product.category}`}>
+                    <Text>Ver Tudo</Text>
+                    <ArrowIcon />
+                  </StyledLink>
+                }
+              />
+            )}
+          </>
+        ) : (
+          <TailSpin height="100" width="100" color="#a2a2a2" radius="1" />
         )}
       </SectionContent>
     </Section>
   );
 };
-
+{
+}
 export default ProductDetails;

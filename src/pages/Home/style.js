@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { FiArrowRight } from "react-icons/fi";
 
 export const Section = styled.section`
-padding: 64px 0px;
+  padding: 64px 0px;
   background-color: ${(props) => props.theme["section-background"]};
 
   & * {
@@ -17,7 +18,6 @@ export const SectionContent = styled.div`
   max-width: 1136px;
   width: 80%;
   margin: auto;
- 
 
   @media (max-width: 1280px) {
     width: 100%;
@@ -78,23 +78,15 @@ export const BannerContent = styled.div`
 
 export const BannerTitle = styled.h1``;
 
-export const LinkWrapper = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-`;
-
-
 export const Text = styled.span`
   color: ${(props) => props.theme["blue"]};
   font-size: 1rem;
   font-weight: 700;
 `;
 
-export const ArrowIcon = styled.span`
-  background-image: url(${(props) => props.icon});
+export const ArrowIcon = styled(FiArrowRight)`
   width: 1.5rem;
   height: 1.5rem;
+  color: ${(props) => props.theme["blue"]};
+  align-self: baseline;
 `;
-

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { Controller, set, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { NumericFormat } from "react-number-format";
 
+import MessageCard from "../../components/MessageCard";
 import ButtonFill from "../../components/Button/ButtonFill/index";
 import addProductValidation from "./addProductValidation";
 
@@ -27,8 +28,6 @@ import {
   Select,
   TextAreaField,
   Option,
-  ProductAddedMessage,
-  CheckIcon,
   SupportedFileType,
   SupportedFileSize,
 } from "./style";
@@ -50,6 +49,17 @@ const AddProduct = () => {
   } = useForm({
     resolver: joiResolver(addProductValidation),
   });
+
+  useEffect(() => {
+    reset({ img: "", category: "", name: "", price: "", description: "" });
+    setFile([]);
+  }, [location, reset, isSubmitSuccessful]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setProductAdded(false);
+    }, 4000);
+  }, [productAdded]);
 
   const uploadHandler = async (e) => {
     setFileUploading(true);
@@ -97,26 +107,17 @@ const AddProduct = () => {
     }
   };
 
-  useEffect(() => {
-    reset({ img: "", category: "", name: "", price: "", description: "" });
-    setFile([]);
-  }, [location, reset, isSubmitSuccessful]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setProductAdded(false);
-    }, 4000);
-  }, [productAdded]);
-
-  console.log(errors);
-
   return (
     <Section>
       {productAdded && (
-        <ProductAddedMessage>
-          <p>Produto adicionado com sucesso!</p>
-          <CheckIcon />
-        </ProductAddedMessage>
+        <MessageCard
+          text="Produto adicionado com sucesso!"
+          width={"var(--message-card-width, 550px)"}
+          height={"70px"}
+          fontSize={"var(--message-font-size, 1.5rem)"}
+          fontSizeIcon={"35px"}
+          margin={"auto auto  40px auto"}
+        />
       )}
 
       <AddProductForm>

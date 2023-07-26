@@ -7,6 +7,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import logo from "../../assets/logo.png";
 import ButtonFill from "../Button/ButtonFill";
 import contactValidation from "./contactValidation";
+import MessageCard from "../MessageCard";
 
 import {
   FooterAuthor,
@@ -24,7 +25,6 @@ import {
   InputError,
   TextField,
   TextAreaField,
-  MessageSendCard,
 } from "./style";
 
 const Footer = () => {
@@ -112,7 +112,13 @@ const Footer = () => {
                 />
               </>
             ) : (
-              <MessageSendCard>Mensagem enviada!</MessageSendCard>
+              <MessageCard
+                text="Mensagem enviada!"
+                width={"250px"}
+                height={"51px"}
+                fontSize={"1rem)"}
+                fontSizeIcon={"35px"}
+              />
             )}
           </ContactForm>
         </FooterContent>

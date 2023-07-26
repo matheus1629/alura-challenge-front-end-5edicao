@@ -168,20 +168,6 @@ export const Contact = styled.div`
   flex: 1 0 0;
 `;
 
-export const MessageSendCard = styled.div`
-  display: inline-flex;
-  padding: 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background: ${(props) => props.theme["light-green"]};
-  border-width: 0px;
-  width: 185px;
-  height: 51px;
-  color: ${(props) => props.theme["white"]};
-  font-size: 16px;
-`;
-
 export const FooterAuthor = styled.div`
   padding: 2rem;
   text-align: center;

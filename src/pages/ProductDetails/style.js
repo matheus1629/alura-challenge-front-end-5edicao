@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaTrashAlt } from "react-icons/fa";
 import { RxCheckCircled } from "react-icons/rx";
+import { FiArrowRight } from "react-icons/fi";
 
 export const Section = styled.section`
   padding: 64px 0px;
@@ -10,9 +11,17 @@ export const Section = styled.section`
     background-color: ${(props) => props.theme["section-background"]};
   }
 
+  @media (max-width: 1280px) {
+    padding: 2rem;
+    --message-card-width: 450px;
+  }
+
   @media (max-width: 768px) {
     padding-top: 0;
     padding-bottom: 64px;
+    padding: 1rem;
+    --message-card-width: 280px;
+    --message-font-size: 1rem;
   }
 `;
 
@@ -165,4 +174,17 @@ export const DeleteProductWrapper = styled.div`
 export const TrahsIcon = styled(FaTrashAlt)`
   color: ${(props) => props.theme["black-2"]};
   font-size: 20px;
+`;
+
+export const Text = styled.span`
+  color: ${(props) => props.theme["blue"]};
+  font-size: 1rem;
+  font-weight: 700;
+`;
+
+export const ArrowIcon = styled(FiArrowRight)`
+  width: 1.5rem;
+  height: 1.5rem;
+  color: ${(props) => props.theme["blue"]};
+  align-self: baseline;
 `;

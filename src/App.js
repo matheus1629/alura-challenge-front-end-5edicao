@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
 import ProductDetails from "./pages/ProductDetails";
+import AllProducts from "./pages/AllProducts";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/allproducts/:category?" element={<AllProducts />} />
         <Route
           path="/products"
           element={
@@ -25,7 +27,14 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/addproduct" element={<AddProduct />} />
+        <Route
+          path="/addproduct"
+          element={
+            <RequireAuth loginPath="/login">
+              <AddProduct />
+            </RequireAuth>
+          }
+        />
         <Route path="/productdetails/:id?" element={<ProductDetails />} />
       </Routes>
       <Footer />
