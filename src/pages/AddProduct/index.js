@@ -29,6 +29,8 @@ import {
   Option,
   ProductAddedMessage,
   CheckIcon,
+  SupportedFileType,
+  SupportedFileSize,
 } from "./style";
 
 const AddProduct = () => {
@@ -39,6 +41,7 @@ const AddProduct = () => {
 
   const {
     reset,
+    trigger,
     setValue,
     register,
     handleSubmit,
@@ -51,6 +54,11 @@ const AddProduct = () => {
   const uploadHandler = async (e) => {
     setFileUploading(true);
     setFile([]);
+
+    if (!(await trigger("img"))) {
+      setFileUploading(false);
+      return;
+    }
     const inputFile = e.target.files[0];
 
     const reader = new FileReader();
@@ -97,8 +105,10 @@ const AddProduct = () => {
   useEffect(() => {
     setTimeout(() => {
       setProductAdded(false);
-    }, 3000);
+    }, 4000);
   }, [productAdded]);
+
+  console.log(errors);
 
   return (
     <Section>
@@ -128,7 +138,16 @@ const AddProduct = () => {
                     Arraste para adicionar uma imagem ou procure no seu
                     computador
                   </p>
-                  <p>formatos suportados: PNG, JPG e SVG</p>
+                  <SupportedFileType
+                    color={errors?.img?.type === "img.fileFormat" ? "red" : ""}
+                  >
+                    Formatos suportados: PNG, JPG e SVG
+                  </SupportedFileType>
+                  <SupportedFileSize
+                    color={errors?.img?.type === "img.fileSize" ? "red" : ""}
+                  >
+                    O arquivo deve ter no máximo 2MB.
+                  </SupportedFileSize>
                 </ButtonFile>
               </>
             ) : (

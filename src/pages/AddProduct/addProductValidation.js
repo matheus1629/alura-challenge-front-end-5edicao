@@ -4,28 +4,35 @@ export default Joi.object({
   img: Joi.any()
     .required()
     .custom((value, helpers) => {
-      // verifica se o valor é um FileList
+      console.log(value);
+
       if (!(value instanceof FileList)) {
-        return helpers.message("Por favor, selecione um arquivo.");
+        return helpers.error("img.fileList", {
+          message: "Por favor, selecione um arquivo.",
+        });
       }
-      // verifica se o FileList tem apenas um arquivo
+
       if (value.length !== 1) {
-        return helpers.message("Por favor, selecione apenas um arquivo.");
+        return helpers.error("img.singleFile", {
+          message: "Por favor, selecione apenas um arquivo.",
+        });
       }
-      // pega o primeiro arquivo do FileList
+
       const file = value[0];
-      // verifica se o tamanho do arquivo é menor que 2MB
+
       if (file.size > 2 * 1024 * 1024) {
-        return helpers.message("O arquivo deve ter no máximo 2MB.");
+        return helpers.error("img.fileSize", {
+          message: "O arquivo deve ter no máximo 2MB.",
+        });
       }
-      // verifica se o formato do arquivo é svg, jpg ou png
+
       const allowedFormats = ["image/svg+xml", "image/jpeg", "image/png"];
       if (!allowedFormats.includes(file.type)) {
-        return helpers.message(
-          "O arquivo deve ter um dos formatos: SVG, JPG ou PNG."
-        );
+        return helpers.error("img.fileFormat", {
+          message: "O arquivo deve ter um dos formatos: SVG, JPG ou PNG.",
+        });
       }
-      // retorna o valor válido
+
       return value;
     }),
   category: Joi.string().required().messages({

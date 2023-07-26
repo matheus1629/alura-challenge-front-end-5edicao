@@ -141,6 +141,14 @@ export const ButtonFile = styled.button`
   border: 0px;
 `;
 
+export const SupportedFileType = styled.p`
+  color: ${(props) => props.color || "none"} !important;
+`;
+
+export const SupportedFileSize = styled.p`
+  color: ${(props) => props.color || "none"} !important;
+`;
+
 export const FileIcon = styled(FaImage)`
   color: ${(props) => props.theme["black-2"]};
   font-size: 30px;
