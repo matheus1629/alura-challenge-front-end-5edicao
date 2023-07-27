@@ -20,21 +20,25 @@ const Paginate = ({ category, title, page, ...props }) => {
   const [previousPage, setPreviousPage] = useState();
   const [nextPage, setNextPage] = useState();
   const [totalPages, setTotalPages] = useState();
-  const itensPerPage = 5;
+  const itensPerPage = 8;
 
   useEffect(() => {
     setPreviousPage(page - 1);
     setNextPage(page + 1);
 
-    fetch(
-      `http://localhost:5000/products/?category=${category}&_page=${page}&_limit=${itensPerPage}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    let url;
+    if (category === "all") {
+      url = `http://localhost:5000/products/?_page=${page}&_limit=${itensPerPage}`;
+    } else {
+      url = `http://localhost:5000/products/?category=${category}&_page=${page}&_limit=${itensPerPage}`;
+    }
+
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((resp) => {
         const totalCount = resp.headers.get("x-total-count");
         const totalPages = Math.ceil(totalCount / itensPerPage);
@@ -88,7 +92,7 @@ const Paginate = ({ category, title, page, ...props }) => {
               </NumberPage>
             )}
 
-            <NumberPage currentPage={true}>{page}</NumberPage>
+            <NumberPage currentpage={true}>{page}</NumberPage>
 
             {page !== totalPages && (
               <NumberPage onClick={() => movePage(1)}>{nextPage}</NumberPage>

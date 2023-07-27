@@ -109,7 +109,7 @@ const ProductDetails = () => {
                 galleryTitle={"Produtos similares"}
                 wrapperStyle={{ flexWrap: "wrap" }}
                 linkComponent={
-                  <StyledLink to={`/allproducts/${product.category}`}>
+                  <StyledLink to={`/allproducts/${product.category}/1`}>
                     <Text>Ver Tudo</Text>
                     <ArrowIcon />
                   </StyledLink>

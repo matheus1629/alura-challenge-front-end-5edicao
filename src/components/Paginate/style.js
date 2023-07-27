@@ -14,6 +14,7 @@ export const WrapperProducts = styled.div`
   align-items: flex-start;
   gap: 1rem;
 
+
   @media (max-width: 671px) {
     flex-wrap: wrap;
   }
@@ -34,8 +35,8 @@ export const NumberPage = styled.span`
   align-self: center;
 
   color: ${(props) =>
-    props.currentPage ? props.theme["blue"] : props.theme["black-2"]};
-  font-size: ${(props) => (props.currentPage ? "2rem" : "1.5rem")};
+    props.currentpage ? props.theme["blue"] : props.theme["black-2"]};
+  font-size: ${(props) => (props.currentpage ? "2rem" : "1.5rem")};
 `;
 
 export const BackPageIcon = styled(IoIosArrowBack)`

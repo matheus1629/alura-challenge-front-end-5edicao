@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Section = styled.section`
   padding: 64px 0px;
@@ -15,7 +15,7 @@ export const SectionContent = styled.div`
   align-items: center;
   gap: 64px;
   max-width: 1136px;
-  //width: 80%;
+  width: 80%;
   margin: auto;
 
   @media (max-width: 1280px) {
@@ -25,25 +25,41 @@ export const SectionContent = styled.div`
   }
 `;
 
+
+
 export const Header = styled.div`
   display: flex;
+  flex-direction: row;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-/*   @media (max-width: 671px) {
-    max-width: 453px;
-  }
-
-  @media (max-width: 532px) {
-    max-width: 297px;
-  } */
 `;
 
 export const Title = styled.h1`
   color: ${(props) => props.theme["black-3"]};
   font-size: 2rem;
   font-weight: 700;
-  @media (max-width: 1280px) {
-    font-size: 22px;
-  }
+`;
+
+export const SelectContainer = styled.div`
+  width: 100%;
+  align-self: self-start;
+  background-color: ${(props) => props.theme["section-background"]};
+  border: ${(props) => props.border || "none"};
+`;
+
+export const Select = styled.select`
+  font-size: 1.3rem;
+  height: 100%;
+  border: none;
+  padding: 0 30px 0 15px;
+  background-color: ${(props) => props.theme["white"]};
+
+  border: solid 2px ${(props) => props.theme["black-3"]};;
+  border-radius: 4px;
+
+`;
+
+export const Option = styled.option`
+  color: ${(props) => props.theme["black"]};
 `;
