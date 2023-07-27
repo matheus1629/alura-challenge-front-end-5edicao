@@ -9,20 +9,6 @@ export const WrapperContent = styled.div`
   max-width: 1136px;
 `;
 
-export const Header = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  @media (max-width: 671px) {
-    max-width: 453px;
-  }
-
-  @media (max-width: 532px) {
-    max-width: 297px;
-  }
-`;
-
 export const WrapperProducts = styled.div`
   display: flex;
   align-items: flex-start;
@@ -30,15 +16,6 @@ export const WrapperProducts = styled.div`
 
   @media (max-width: 671px) {
     flex-wrap: wrap;
-  }
-`;
-
-export const Title = styled.h1`
-  color: ${(props) => props.theme["black-3"]};
-  font-size: 2rem;
-  font-weight: 700;
-  @media (max-width: 1280px) {
-    font-size: 22px;
   }
 `;
 

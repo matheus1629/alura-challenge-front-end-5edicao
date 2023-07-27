@@ -69,19 +69,27 @@ const Home = () => {
             productCategory={"?category=star-wars&_limit=6"}
             galleryTitle={"Star Wars"}
             numberOfCards={numberOfCards()}
-            linkComponent={<LinkAllProductsComponent to={"/allproducts/star-wars"} />}
+            linkComponent={
+              <LinkAllProductsComponent
+                to={"/allproducts/star-wars/1"}
+              />
+            }
           />
           <Gallery
             productCategory={"?category=console&_limit=6"}
             galleryTitle={"Consoles"}
             numberOfCards={numberOfCards()}
-            linkComponent={<LinkAllProductsComponent to={"/allproducts/console"} />}
+            linkComponent={
+              <LinkAllProductsComponent to={"/allproducts/console/1"} />
+            }
           />
           <Gallery
             productCategory={"?category=others&_limit=6"}
             galleryTitle={"Diversos"}
             numberOfCards={numberOfCards()}
-            linkComponent={<LinkAllProductsComponent to={"/allproducts/others"} />}
+            linkComponent={
+              <LinkAllProductsComponent to={"/allproducts/others/1"} />
+            }
           />
         </SectionContent>
       </Section>

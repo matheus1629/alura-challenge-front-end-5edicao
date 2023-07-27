@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from "react";
 
 import { TailSpin } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 
 import ProductCard from "../ProductCard";
 
 import {
-  Title,
   WrapperProducts,
-  Header,
   WrapperContent,
   Pagination,
   BackPageIcon,
   ForwardPageIcon,
   NumberPage,
 } from "./style";
-import { useNavigate } from "react-router-dom";
 
-const Paginate = ({ productCategory, title, linkComponent, ...props }) => {
+const Paginate = ({ category, title, page, ...props }) => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
-  const [previousPage, setPreviousPage] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [nextPage, setNextPage] = useState(2);
+  const [previousPage, setPreviousPage] = useState();
+  const [nextPage, setNextPage] = useState();
   const [totalPages, setTotalPages] = useState();
-  const itensPerPage = 4;
+  const itensPerPage = 5;
 
   useEffect(() => {
+    setPreviousPage(page - 1);
+    setNextPage(page + 1);
+
     fetch(
-      `http://localhost:5000/products${productCategory}?_page=${currentPage}&_limit=${itensPerPage}`,
+      `http://localhost:5000/products/?category=${category}&_page=${page}&_limit=${itensPerPage}`,
       {
         method: "GET",
         headers: {
@@ -45,35 +45,15 @@ const Paginate = ({ productCategory, title, linkComponent, ...props }) => {
         setProducts(data);
       })
       .catch((err) => console.log(err));
-  }, [currentPage]);
-
-  const renderCards = () => {
-    return (
-      products.length > 0 &&
-      products.map((product) => (
-        <ProductCard
-          productName={product.name}
-          productPrice={product.price}
-          productImg={product.img}
-          productId={product.id}
-          key={product.id}
-        />
-      ))
-    );
-  };
+  }, [page, category]);
 
   const movePage = (number) => {
     switch (number) {
       case 1:
-        setPreviousPage((prev) => prev + 1);
-        setCurrentPage((prev) => prev + 1);
-        setNextPage((prev) => prev + 1);
-     //   navigate(`/products/${productCategory}?_page=${currentPage + 1}&_limit=${itensPerPage}`);
+        navigate(`/allproducts/${category}/${page + number}`);
         break;
       case -1:
-        setPreviousPage((prev) => prev - 1);
-        setCurrentPage((prev) => prev - 1);
-        setNextPage((prev) => prev - 1);
+        navigate(`/allproducts/${category}/${page + number}`);
         break;
 
       default:
@@ -85,33 +65,38 @@ const Paginate = ({ productCategory, title, linkComponent, ...props }) => {
     <>
       {products.length > 0 ? (
         <WrapperContent>
-          <Header>
-            <Title>{title}</Title>
-            {linkComponent}
-          </Header>
           <WrapperProducts style={props.wrapperStyle}>
-            {renderCards()}
+            {products.length > 0 &&
+              products.map((product) => (
+                <ProductCard
+                  productName={product.name}
+                  productPrice={product.price}
+                  productImg={product.img}
+                  productId={product.id}
+                  key={product.id}
+                />
+              ))}
           </WrapperProducts>
           <Pagination>
             <BackPageIcon
-              firstpage={currentPage === 1 ? true : false}
-              onClick={currentPage === 1 ? null : () => movePage(-1)}
+              firstpage={page === 1 ? true : false}
+              onClick={page === 1 ? null : () => movePage(-1)}
             />
-            {currentPage !== 1 && (
+            {page !== 1 && (
               <NumberPage onClick={() => movePage(-1)}>
                 {previousPage}
               </NumberPage>
             )}
 
-            <NumberPage currentPage={true}>{currentPage}</NumberPage>
+            <NumberPage currentPage={true}>{page}</NumberPage>
 
-            {currentPage !== totalPages && (
+            {page !== totalPages && (
               <NumberPage onClick={() => movePage(1)}>{nextPage}</NumberPage>
             )}
 
             <ForwardPageIcon
-              lastpage={currentPage === totalPages ? true : false}
-              onClick={currentPage === totalPages ? null : () => movePage(1)}
+              lastpage={page === totalPages ? true : false}
+              onClick={page === totalPages ? null : () => movePage(1)}
             />
           </Pagination>
         </WrapperContent>

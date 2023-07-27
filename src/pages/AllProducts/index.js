@@ -1,39 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { Section, SectionContent } from "./style";
-import Gallery from "../../components/Gallery";
-import { useLocation } from "react-router-dom";
+import { Header, Section, SectionContent, Title } from "./style";
+import { useParams } from "react-router-dom";
+import Paginate from "../../components/Paginate";
 
 const AllProducts = () => {
-  const location = useLocation();
-  const [galleryTitle, setGalleryTitle] = useState();
-  const [productCategory, setProductCategory] = useState();
+  const { category, page } = useParams();
+  const [title, setTitle] = useState();
+  const pageNumber = Number(page);
 
   useEffect(() => {
-    switch (location.pathname) {
-      case "/allproducts/star-wars":
-        setGalleryTitle("Star Wars");
-        setProductCategory("?category=star-wars");
+    switch (category) {
+      case "star-wars":
+        setTitle("Star Wars");
         break;
-      case "/allproducts/console":
-        setGalleryTitle("Consoles");
-        setProductCategory("?category=console");
+      case "console":
+        setTitle("Consoles");
         break;
-      case "/allproducts/others":
-        setGalleryTitle("Outros");
-        setProductCategory("?category=others");
+      case "others":
+        setTitle("Outros");
         break;
       default:
         break;
     }
-    return galleryTitle;
-  }, []);
+    return title;
+  }, [category]);
 
   return (
     <Section>
       <SectionContent>
-        <Gallery
-          productCategory={productCategory}
-          galleryTitle={galleryTitle}
+        <Header>
+          <Title>{title}</Title>
+        </Header>
+        <Paginate
+          category={category}
+          page={pageNumber}
           wrapperStyle={{ flexWrap: "wrap" }}
         />
       </SectionContent>
