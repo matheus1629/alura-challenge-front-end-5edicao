@@ -7,10 +7,9 @@ import SearchBar from "../SearchBar";
 import logo from "../../assets/logo.png";
 import ButtonOutline from "../Button/ButtonOutline";
 
-import { Logo, WrapperHeader, WrapperSerchBarLogo } from "./style";
+import { Logo, WrapperButtons, WrapperHeader, WrapperSerchBarLogo } from "./style";
 
 const Header = () => {
-  const location = useLocation();
   const isAuthenticated = useIsAuthenticated();
   const signOut = useSignOut();
 
@@ -26,40 +25,30 @@ const Header = () => {
         />
       </WrapperSerchBarLogo>
 
-      {(location.pathname === "/" ||
-        location.pathname.startsWith("/productdetails/")) &&
-      !isAuthenticated() ? (
+      {!isAuthenticated() ? (
         <ButtonOutline
           text={"Login"}
-          width={"var(--button-width, 182px)"}
+          width={"var(--button-width, 170px)"}
           height={"var(--button-height, 51px)"}
           to="/login"
         />
-      ) : (location.pathname === "/" ||
-          location.pathname.startsWith("/productdetails/")) &&
-        isAuthenticated() ? (
-        <ButtonOutline
-          text={"Menu administrador"}
-          width={"var(--button-width, 182px)"}
-          height={"var(--button-height, 51px)"}
-          to="/login"
-        />
-      ) : location.pathname === "/addproduct" ? (
-        <ButtonOutline
-          text={"Menu administrador"}
-          width={"var(--button-width, 185px)"}
-          height={"var(--button-height, 51px)"}
-          to="/products"
-        />
-      ) : location.pathname === "/products" ? (
-        <ButtonOutline
-          text={"Logout"}
-          width={"var(--button-width, 185px)"}
-          height={"var(--button-height, 51px)"}
-          onClick={() => signOut()}
-          to="/"
-        />
-      ) : null}
+      ) : (
+        <WrapperButtons>
+          <ButtonOutline
+            text={"Adicionar produto"}
+            width={"var(--button-width, 170px)"}
+            height={"var(--button-height, 51px)"}
+            to="/addproduct"
+          />{" "}
+          <ButtonOutline
+            text={"Logout"}
+            width={"var(--button-width, 170px)"}
+            height={"var(--button-height, 51px)"}
+            onClick={() => signOut()}
+            to="/"
+          />
+        </WrapperButtons>
+      )}
     </WrapperHeader>
   );
 };

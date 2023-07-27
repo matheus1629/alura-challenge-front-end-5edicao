@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export const SeachBarWrapper = styled.div`
   position: relative;
+  
 `;
 
 export const SearchBarInputWrapper = styled.div`
@@ -15,14 +16,6 @@ export const SearchBarInputWrapper = styled.div`
   height: ${(props) => props.height};
   padding: 8px 16px;
   border-radius: 20px;
-
-  @media (max-width: 1280px) {
-    height: ${(props) => props.height};
-  }
-
-  @media (max-width: 768px) {
-    height: ${(props) => props.height};
-  }
 `;
 
 export const SearchBarInput = styled.input`
@@ -32,6 +25,11 @@ export const SearchBarInput = styled.input`
   width: 100%;
   display: flex;
   align-items: center;
+  font-size: 1.3rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 
   &::placeholder {
     color: ${(props) => props.theme["black-2"]};
@@ -52,7 +50,7 @@ export const SearchBarInput = styled.input`
   }
 
   @media (max-width: 768px) {
-    display: none;
+    // display: none;
   }
 `;
 
@@ -117,6 +115,4 @@ export const SearchLink = styled(Link)`
   &:active {
     text-decoration: none;
   }
-
-
 `;

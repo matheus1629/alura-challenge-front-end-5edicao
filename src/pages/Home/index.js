@@ -59,7 +59,8 @@ const Home = () => {
           <ButtonFill
             text={"Ver Consoles"}
             width={"130px"}
-            height={"51px"} /* to={"/productdetails/"} */
+            height={"51px"}
+            to={"/allproducts/console/1"}
           />
         </BannerContent>
       </Banner>

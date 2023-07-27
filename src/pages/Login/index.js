@@ -63,7 +63,7 @@ const Login = () => {
         tokenType: "Bearer",
         authState: { email: users[0].email },
       });
-      navigate("/products");
+      navigate("/allproducts/all/1");
     } else {
       setLoginError("Email ou senha inválido!");
     }
