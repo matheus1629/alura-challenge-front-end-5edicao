@@ -1,16 +1,16 @@
 import React from "react";
 
-import Gallery from "../../components/Gallery";
 import ButtonFill from "../../components/Button/ButtonFill";
 
 import { Section, SectionContent } from "./style";
+import Paginate from "../../components/Paginate";
 const Products = () => {
   return (
     <Section>
       <SectionContent>
-        <Gallery
+        <Paginate
           productCategory={""}
-          galleryTitle={"Todos os produtos"}
+          title={"Todos os produtos"}
           wrapperStyle={{ flexWrap: "wrap" }}
           linkComponent={
             <ButtonFill

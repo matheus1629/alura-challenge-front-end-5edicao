@@ -41,7 +41,7 @@ export const SectionContent = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 0rem 2rem;
+    padding: 0rem 1em;
     --button-height: 40px;
   }
 `;

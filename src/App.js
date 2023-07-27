@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/allproducts/:category?" element={<AllProducts />} />
         <Route
-          path="/products"
+          path="/products/:page?"
           element={
             <RequireAuth loginPath="/login">
               <Products />
