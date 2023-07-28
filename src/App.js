@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import AddProduct from "./pages/AddProduct";
 import ProductDetails from "./pages/ProductDetails";
 import AllProducts from "./pages/AllProducts";
+import ErrorPageNotFound from "./pages/ErrorPageNotFound";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           }
         />
         <Route path="/productdetails/:id?" element={<ProductDetails />} />
+        <Route path="*" element={<ErrorPageNotFound />} />
       </Routes>
       <Footer />
     </>

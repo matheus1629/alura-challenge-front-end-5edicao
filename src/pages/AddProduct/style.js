@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import { FaImage, FaTrashAlt } from "react-icons/fa";
-import { RxCheckCircled } from "react-icons/rx";
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
 
 export const Section = styled.section`
   padding: 5.75rem;
   background-color: ${(props) => props.theme["section-background"]};
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     padding: 2rem;
     --message-card-width: 450px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     padding: 1rem;
     --message-card-width: 280px;
     --message-font-size: 1rem;
@@ -28,14 +28,14 @@ export const AddProductForm = styled.form`
 
   background-color: ${(props) => props.theme["section-background"]};
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     --button-width: 450px;
     --button-height: 40px;
 
     width: 450px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width:${MOBILE_BREAKPOINT}) {
     --button-width: 280px;
     --button-height: 40px;
 
@@ -47,7 +47,7 @@ export const TitleForm = styled.h1`
   font-size: 2rem;
   background-color: ${(props) => props.theme["section-background"]};
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     font-size: 1.5rem;
   }
 `;
@@ -62,13 +62,14 @@ export const WrapperInputFile = styled.div`
   width: 100%;
   border: 2px dashed ${(props) => props.bordercolor || props.theme["black-2"]}; // use a propriedade ou a cor padrão
   padding: 10px;
+  border-radius: 3px;
 
   & p {
     font-size: 13px;
     color: ${(props) => props.theme["black-2"]};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-direction: column;
     height: 250px;
   }
@@ -92,7 +93,7 @@ export const PreviewImg = styled.img`
   height: 100%;
   object-fit: cover;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     max-width: 100%;
     height: 70%;
   }
@@ -139,6 +140,7 @@ export const WrapperInput = styled.div`
   position: relative;
   gap: 7px;
   width: 100%;
+  border-radius: 3px;
 `;
 
 export const InputLabel = styled.label`
@@ -155,7 +157,7 @@ export const TextField = styled.input`
   width: 100%;
   height: 55px;
   border-width: 0px;
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: ${(props) => props.theme["white"]};
   border: ${(props) => props.border || "none"};
 
@@ -203,6 +205,7 @@ export const SelectContainer = styled.div`
   align-self: self-start;
   background-color: ${(props) => props.theme["section-background"]};
   border: ${(props) => props.border || "none"};
+  border-radius: 3px;
 `;
 
 export const Select = styled.select`
@@ -211,6 +214,7 @@ export const Select = styled.select`
   border: none;
   padding: 0 30px 0 15px;
   background-color: ${(props) => props.theme["white"]};
+  border-radius: 3px;
 
   &:first-child {
     color: ${(props) => props.color || "none"};

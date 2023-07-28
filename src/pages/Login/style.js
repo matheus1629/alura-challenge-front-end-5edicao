@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
 
 export const Section = styled.section`
   padding: 92px;
@@ -12,16 +13,15 @@ export const LoginForm = styled.form`
   gap: 3rem;
   margin: auto;
   width: 423px;
-
   background-color: ${(props) => props.theme["section-background"]};
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     --button-width: 350px;
     --button-height: 40px;
     width: 350px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     --button-width: 240px;
     --button-height: 40px;
     width: 240px;
@@ -38,7 +38,7 @@ export const WrapperInput = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 67px;
-
+  border-radius: 3px;
   & * {
     background-color: ${(props) => props.theme["section-background"]};
   }
@@ -57,7 +57,7 @@ export const TextField = styled.input`
   border-width: 0;
   border: ${(props) => props.border || "none"};
   background-color: ${(props) => props.theme["white"]};
-
+  border-radius: 3px;
   &:focus {
     outline: none;
   }

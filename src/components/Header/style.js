@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BODY_MAX_WIDTH, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
 
 export const WrapperHeader = styled.header`
   display: flex;
@@ -6,14 +7,14 @@ export const WrapperHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.theme["white"]};
-  max-width: 1136px;
+  max-width: ${BODY_MAX_WIDTH};
   width: 80%;
   min-height: 115px;
   margin: auto;
   margin-bottom: 20px;
   flex-wrap: wrap;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     padding: 1rem 2rem;
     min-height: 4.5rem;
     width: 100%;
@@ -25,17 +26,17 @@ export const WrapperHeader = styled.header`
     gap: 20px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     --button-width: 133px;
     --button-height: 40px;
-    --search-bar-width:100%;
+    --search-bar-width: 100%;
   }
 `;
 
 export const Logo = styled.img`
   background-color: ${(props) => props.theme["white"]};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     width: 120px;
   }
 `;
@@ -46,7 +47,12 @@ export const WrapperSerchBarLogo = styled.div`
   gap: 2rem;
   margin-right: 30px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1055px) {
+    border-bottom: 1px solid ${(props) => props.theme["blue"]};
+    padding-bottom: 20px;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     gap: 0.5rem;
   }
 `;

@@ -1,19 +1,19 @@
 import styled from "styled-components";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { BODY_MAX_WIDTH } from "../../config/consts";
 
 export const WrapperContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  max-width: 1136px;
+  max-width: ${BODY_MAX_WIDTH};
 `;
 
 export const WrapperProducts = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-
 
   @media (max-width: 671px) {
     flex-wrap: wrap;

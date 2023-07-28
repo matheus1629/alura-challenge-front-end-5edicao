@@ -5,7 +5,6 @@ import {
   Section,
   SectionContent,
   Select,
-  SelectContainer,
   Title,
 } from "./style";
 import { useNavigate, useParams } from "react-router-dom";

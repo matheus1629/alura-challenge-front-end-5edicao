@@ -1,13 +1,18 @@
 import React from "react";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useIsAuthenticated, useSignOut } from "react-auth-kit";
 
 import SearchBar from "../SearchBar";
 import logo from "../../assets/logo.png";
 import ButtonOutline from "../Button/ButtonOutline";
 
-import { Logo, WrapperButtons, WrapperHeader, WrapperSerchBarLogo } from "./style";
+import {
+  Logo,
+  WrapperButtons,
+  WrapperHeader,
+  WrapperSerchBarLogo,
+} from "./style";
 
 const Header = () => {
   const isAuthenticated = useIsAuthenticated();

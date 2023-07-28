@@ -13,9 +13,10 @@ export const Button = styled.button`
   color: ${(props) => props.theme["white"]};
   font-size: 16px;
   transition: 0.3s;
+  border-radius: 3px;
+  
   cursor: pointer;
   &:hover {
-    
     background-color: ${(props) => props.theme["button-fill-hover"]};
   }
 `;

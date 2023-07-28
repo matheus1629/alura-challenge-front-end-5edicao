@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BODY_MAX_WIDTH, TABLET_BREAKPOINT } from "../../config/consts";
 
 export const Section = styled.section`
   padding: 64px 0px;
@@ -14,11 +15,11 @@ export const SectionContent = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 64px;
-  max-width: 1136px;
+  max-width: ${BODY_MAX_WIDTH};
   width: 80%;
   margin: auto;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     width: 100%;
     padding: 0rem 2rem;
     --button-height: 40px;

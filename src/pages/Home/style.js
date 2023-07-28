@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FiArrowRight } from "react-icons/fi";
+import { BODY_MAX_WIDTH, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
 
 export const Section = styled.section`
   padding: 64px 0px;
@@ -15,11 +16,11 @@ export const SectionContent = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 64px;
-  max-width: 1136px;
+  max-width: ${BODY_MAX_WIDTH};
   width: 80%;
   margin: auto;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     width: 100%;
     padding: 0rem 2rem;
   }
@@ -40,7 +41,7 @@ export const Banner = styled.div`
 
 export const BannerContent = styled.div`
   display: flex;
-  max-width: 1136px;
+  max-width: ${BODY_MAX_WIDTH};
   width: 80%;
   flex-direction: column;
   justify-content: flex-end;
@@ -48,7 +49,7 @@ export const BannerContent = styled.div`
   gap: 16px;
   background: transparent;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     width: 100%;
     padding: 2rem;
   }
@@ -59,7 +60,7 @@ export const BannerContent = styled.div`
     font-weight: 700;
     background: transparent;
 
-    @media (max-width: 768px) {
+    @media (max-width: ${MOBILE_BREAKPOINT}) {
       font-size: 35px;
     }
   }
@@ -70,7 +71,7 @@ export const BannerContent = styled.div`
     font-weight: 700;
     background: transparent;
 
-    @media (max-width: 768px) {
+    @media (max-width: ${MOBILE_BREAKPOINT}) {
       font-size: 15px;
     }
   }

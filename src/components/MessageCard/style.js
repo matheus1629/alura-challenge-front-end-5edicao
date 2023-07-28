@@ -12,9 +12,7 @@ export const ProductAddedMessage = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   border-radius: 10px;
-margin: ${(props) => props.margin};
-  /* margin: auto auto  40px auto; */
- 
+  margin: ${(props) => props.margin};
 
   & p {
     background-color: ${(props) => props.theme["light-green"]} !important;

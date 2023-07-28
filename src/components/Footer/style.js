@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BODY_MAX_WIDTH, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
 
 export const WrapperFooter = styled.footer`
   display: flex;
@@ -16,17 +17,17 @@ export const FooterInfo = styled.div`
 export const FooterContent = styled.div`
   display: flex;
   margin: 64px 0px;
-  max-width: 1136px;
+  max-width: ${BODY_MAX_WIDTH};
   width: 80%;
   align-items: flex-start;
   gap: 112px;
   background-color: ${(props) => props.theme["light-blue"]};
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     width: 100%;
     padding: 0rem 2rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-direction: column;
     align-items: center;
     gap: 3rem;
@@ -45,12 +46,12 @@ export const LeftDiv = styled.div`
   gap: 112px;
   background-color: ${(props) => props.theme["light-blue"]};
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     flex-direction: column;
     gap: 1.5rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
@@ -73,7 +74,7 @@ export const CompanyInfoLink = styled.a`
   cursor: pointer;
   background-color: ${(props) => props.theme["light-blue"]};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     margin: auto;
   }
 `;
@@ -86,7 +87,7 @@ export const ContactForm = styled.form`
   flex: 1 0 0;
   background-color: ${(props) => props.theme["light-blue"]};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     width: 80%;
   }
 `;
@@ -102,8 +103,9 @@ export const WrapperInput = styled.label`
   position: relative;
   gap: 7px;
   width: 100%;
+  border-radius: 3px;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     max-width: 400px;
   }
 `;
@@ -121,7 +123,7 @@ export const TextField = styled.input`
   width: 100%;
   height: 55px;
   border-width: 0px;
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: ${(props) => props.theme["white"]};
   border: ${(props) => props.bordercolor || ""};
 

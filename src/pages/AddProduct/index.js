@@ -94,7 +94,13 @@ const AddProduct = () => {
   };
 
   const onSubmit = async (data) => {
-    data = { ...data, img: file[1] };
+    data = {
+      ...data,
+      img: file[1],
+      name: data.name.trim(),
+      description: data.description.trim(),
+    };
+
     try {
       await fetch(`http://localhost:5000/products`, {
         method: "POST",

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { HiOutlineSearch } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { MOBILE_BREAKPOINT } from "../../config/consts";
 
 export const SeachBarWrapper = styled.div`
   position: relative;
@@ -27,7 +28,7 @@ export const SearchBarInput = styled.input`
   align-items: center;
   font-size: 1.3rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     font-size: 1rem;
   }
 
@@ -49,7 +50,7 @@ export const SearchBarInput = styled.input`
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     // display: none;
   }
 `;

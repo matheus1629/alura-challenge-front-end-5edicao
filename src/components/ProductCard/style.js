@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
 
 export const WrapperProduct = styled.div`
   display: flex;
@@ -15,11 +16,11 @@ export const WrapperProduct = styled.div`
     }
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     max-width: 168px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     max-width: 140px;
   }
 
@@ -33,11 +34,11 @@ export const ImageProduct = styled.img`
   height: 180px;
   object-fit: cover;
 
-  @media (max-width: 1280px) {
+  @media (max-width: ${TABLET_BREAKPOINT}) {
     width: 164px;
     width: 168px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     width: 140px;
     height: 143px;
   }
