@@ -4,6 +4,7 @@ import ButtonFill from "../../components/Button/ButtonFill";
 
 import { Section, SectionContent } from "./style";
 import Paginate from "../../components/Paginate";
+
 const Products = () => {
   return (
     <Section>

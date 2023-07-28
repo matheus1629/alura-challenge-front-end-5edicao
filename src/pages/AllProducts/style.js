@@ -26,8 +26,6 @@ export const SectionContent = styled.div`
   }
 `;
 
-
-
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
@@ -42,13 +40,6 @@ export const Title = styled.h1`
   font-weight: 700;
 `;
 
-export const SelectContainer = styled.div`
-  width: 100%;
-  align-self: self-start;
-  background-color: ${(props) => props.theme["section-background"]};
-  border: ${(props) => props.border || "none"};
-`;
-
 export const Select = styled.select`
   font-size: 1.3rem;
   height: 100%;
@@ -56,9 +47,8 @@ export const Select = styled.select`
   padding: 0 30px 0 15px;
   background-color: ${(props) => props.theme["white"]};
 
-  border: solid 2px ${(props) => props.theme["black-3"]};;
+  border: solid 2px ${(props) => props.theme["black-3"]};
   border-radius: 4px;
-
 `;
 
 export const Option = styled.option`

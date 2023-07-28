@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { BODY_MAX_WIDTH, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
+import {
+  BODY_MAX_WIDTH,
+  MOBILE_BREAKPOINT,
+  TABLET_BREAKPOINT,
+} from "../../config/consts";
 
 export const WrapperFooter = styled.footer`
   display: flex;

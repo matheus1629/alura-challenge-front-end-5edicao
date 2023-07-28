@@ -49,7 +49,6 @@ const SearchBar = ({ width, height }) => {
   return (
     <SeachBarWrapper>
       <SearchBarInputWrapper width={width} height={height}>
-        
         <SearchBarInput
           placeholder="O que você deseja encontrar?"
           type="search"

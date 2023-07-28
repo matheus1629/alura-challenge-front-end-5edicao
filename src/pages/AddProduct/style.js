@@ -35,7 +35,7 @@ export const AddProductForm = styled.form`
     width: 450px;
   }
 
-  @media (max-width:${MOBILE_BREAKPOINT}) {
+  @media (max-width: ${MOBILE_BREAKPOINT}) {
     --button-width: 280px;
     --button-height: 40px;
 
@@ -182,22 +182,6 @@ export const TextAreaField = styled.textarea`
   &:focus {
     outline: none;
   }
-`;
-
-export const InputField = styled.input`
-  padding: 10px;
-  width: 100%;
-  border-width: 0;
-  background-color: ${(props) => props.theme["white"]};
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-export const InputError = styled.p`
-  color: red;
-  background-color: ${(props) => props.theme["section-background"]};
 `;
 
 export const SelectContainer = styled.div`

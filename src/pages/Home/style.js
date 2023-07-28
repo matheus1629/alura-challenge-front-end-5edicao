@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { FiArrowRight } from "react-icons/fi";
-import { BODY_MAX_WIDTH, MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from "../../config/consts";
+import {
+  BODY_MAX_WIDTH,
+  MOBILE_BREAKPOINT,
+  TABLET_BREAKPOINT,
+} from "../../config/consts";
 
 export const Section = styled.section`
   padding: 64px 0px;
@@ -76,8 +80,6 @@ export const BannerContent = styled.div`
     }
   }
 `;
-
-export const BannerTitle = styled.h1``;
 
 export const Text = styled.span`
   color: ${(props) => props.theme["blue"]};

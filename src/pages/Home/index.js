@@ -17,7 +17,9 @@ import {
 } from "./style";
 
 const Home = () => {
-  const sixCards = useMediaQuery({ query: "(min-width: ${TABLET_BREAKPOINT})" });
+  const sixCards = useMediaQuery({
+    query: "(min-width: ${TABLET_BREAKPOINT})",
+  });
   const fiveCards = useMediaQuery({
     query: "(min-width: 1015px) and (max-width: 1279px)",
   });
@@ -71,9 +73,7 @@ const Home = () => {
             galleryTitle={"Star Wars"}
             numberOfCards={numberOfCards()}
             linkComponent={
-              <LinkAllProductsComponent
-                to={"/all-products/star-wars/1"}
-              />
+              <LinkAllProductsComponent to={"/all-products/star-wars/1"} />
             }
           />
           <Gallery

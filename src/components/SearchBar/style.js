@@ -5,7 +5,6 @@ import { MOBILE_BREAKPOINT } from "../../config/consts";
 
 export const SeachBarWrapper = styled.div`
   position: relative;
-  
 `;
 
 export const SearchBarInputWrapper = styled.div`
@@ -48,10 +47,6 @@ export const SearchBarInput = styled.input`
 
   &::-webkit-search-cancel-button {
     display: none;
-  }
-
-  @media (max-width: ${MOBILE_BREAKPOINT}) {
-    // display: none;
   }
 `;
 

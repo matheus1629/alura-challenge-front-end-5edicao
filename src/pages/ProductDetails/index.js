@@ -9,9 +9,7 @@ import Gallery from "../../components/Gallery";
 
 import {
   ArrowIcon,
-  CheckIcon,
   DeleteProductWrapper,
-  ProductAddedMessage,
   ProductDescription,
   ProductImg,
   ProductInfo,
