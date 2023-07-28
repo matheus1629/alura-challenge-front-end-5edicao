@@ -6,30 +6,6 @@ import {
   TABLET_BREAKPOINT,
 } from "../../config/consts";
 
-export const Section = styled.section`
-  padding: 64px 0px;
-  background-color: ${(props) => props.theme["section-background"]};
-
-  & * {
-    background-color: ${(props) => props.theme["section-background"]};
-  }
-`;
-
-export const SectionContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 64px;
-  max-width: ${BODY_MAX_WIDTH};
-  width: 80%;
-  margin: auto;
-
-  @media (max-width: ${TABLET_BREAKPOINT}) {
-    width: 100%;
-    padding: 0rem 2rem;
-  }
-`;
-
 export const Banner = styled.div`
   display: flex;
   height: 352px;
@@ -78,6 +54,30 @@ export const BannerContent = styled.div`
     @media (max-width: ${MOBILE_BREAKPOINT}) {
       font-size: 15px;
     }
+  }
+`;
+
+export const Section = styled.section`
+  padding: 64px 0px;
+  background-color: ${(props) => props.theme["section-background"]};
+
+  & * {
+    background-color: ${(props) => props.theme["section-background"]};
+  }
+`;
+
+export const SectionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  max-width: ${BODY_MAX_WIDTH};
+  width: 80%;
+  margin: auto;
+
+  @media (max-width: ${TABLET_BREAKPOINT}) {
+    width: 100%;
+    padding: 0rem 2rem;
   }
 `;
 

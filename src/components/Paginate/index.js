@@ -23,7 +23,7 @@ const Paginate = ({ category, title, page, ...props }) => {
   const [totalPages, setTotalPages] = useState();
   const [fetchError, setFetchError] = useState(null);
 
-  const itensPerPage = 8;
+  const itensPerPage = 6;
 
   useEffect(() => {
     setPreviousPage(page - 1);

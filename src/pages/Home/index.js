@@ -18,7 +18,7 @@ import {
 
 const Home = () => {
   const sixCards = useMediaQuery({
-    query: "(min-width: ${TABLET_BREAKPOINT})",
+    query: "(min-width: 1280px)",
   });
   const fiveCards = useMediaQuery({
     query: "(min-width: 1015px) and (max-width: 1279px)",
