@@ -71,7 +71,7 @@ const ProductDetails = () => {
           <>
             {!productDeleted ? (
               <ProductWrapper>
-                <ProductImg src={product?.img} />
+                <ProductImg alt="Imagem do produto" src={product?.img} />
 
                 <ProductInfo>
                   <ProductTitle>{product?.name}</ProductTitle>

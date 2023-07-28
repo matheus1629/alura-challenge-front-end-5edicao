@@ -24,7 +24,7 @@ const ProductCard = ({
   return (
     <StyledLink to={`/product-details/${productId}`}>
       <WrapperProduct galleryTitle={galleryTitle}>
-        <ImageProduct src={productImg} />
+        <ImageProduct alt="Imagem do produto" src={productImg} />
         <ProductTitle>{productName}</ProductTitle>
         <ProductPrice>{priceBRL}</ProductPrice>
         <ProductLink>Ver Produto</ProductLink>

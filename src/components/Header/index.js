@@ -22,7 +22,7 @@ const Header = () => {
     <WrapperHeader>
       <WrapperSerchBarLogo>
         <Link to={"/"}>
-          <Logo src={logo} />
+          <Logo alt="Logo Alura Geek" src={logo} />
         </Link>
         <SearchBar
           width={"var(--search-bar-width, 393px)"}

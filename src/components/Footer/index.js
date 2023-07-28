@@ -59,7 +59,7 @@ const Footer = () => {
       <FooterInfo>
         <FooterContent>
           <LeftDiv>
-            <Logo src={logo} />
+            <Logo alt="Logo Alura Geek" src={logo} />
             <WrapperCompanyInfo>
               <CompanyInfoLink>Quem somos nós</CompanyInfoLink>
               <CompanyInfoLink>Política de privacidade</CompanyInfoLink>

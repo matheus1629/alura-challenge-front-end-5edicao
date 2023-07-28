@@ -163,7 +163,7 @@ const AddProduct = () => {
           </WrapperInputFile>
         ) : (
           <WrapperInputFile>
-            <PreviewImg src={file[1]} />
+            <PreviewImg alt="Imagem do produto" src={file[1]} />
             <FileName>{file[0]}</FileName>
             <TrahsIcon
               onClick={() => {
