@@ -34,7 +34,7 @@ const AllProducts = () => {
   }, [category]);
 
   const changeCategory = (value) => {
-    navigate(`/allproducts/${value}/1`);
+    navigate(`/all-products/${value}/1`);
   };
 
   return (

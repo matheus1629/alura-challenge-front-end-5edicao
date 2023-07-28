@@ -67,7 +67,7 @@ const SearchBar = ({ width, height }) => {
             return (
               <SearchLink
                 classNeme="search-link"
-                to={`/productdetails/${result.id}`}
+                to={`/product-details/${result.id}`}
               >
                 <SearchResultWrapper>
                   <SearchResultName>

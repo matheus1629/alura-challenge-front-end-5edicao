@@ -55,7 +55,7 @@ const Paginate = ({ category, title, page, ...props }) => {
   }, [page, category]);
 
   const movePage = (number) => {
-    navigate(`/allproducts/${category}/${page + number}`);
+    navigate(`/all-products/${category}/${page + number}`);
   };
 
   return (

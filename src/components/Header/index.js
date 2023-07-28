@@ -43,7 +43,7 @@ const Header = () => {
             text={"Adicionar produto"}
             width={"var(--button-width, 170px)"}
             height={"var(--button-height, 51px)"}
-            to="/addproduct"
+            to="/add-product"
           />{" "}
           <ButtonOutline
             text={"Logout"}

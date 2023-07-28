@@ -17,7 +17,7 @@ const Products = () => {
               text={"Adicionar produtos"}
               width={"175px"}
               height={"var(--button-height, 51px)"}
-              to={"/addproduct"}
+              to={"/add-product"}
             />
           }
         />

@@ -19,19 +19,19 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route
-          path="/allproducts/:category?/:page?"
+          path="/all-products/:category?/:page?"
           element={<AllProducts />}
         />
 
         <Route
-          path="/addproduct"
+          path="/add-product"
           element={
             <RequireAuth loginPath="/login">
               <AddProduct />
             </RequireAuth>
           }
         />
-        <Route path="/productdetails/:id?" element={<ProductDetails />} />
+        <Route path="/product-details/:id?" element={<ProductDetails />} />
         <Route path="*" element={<ErrorPageNotFound />} />
       </Routes>
       <Footer />

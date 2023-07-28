@@ -22,7 +22,7 @@ const ProductCard = ({
   });
 
   return (
-    <StyledLink to={`/productdetails/${productId}`}>
+    <StyledLink to={`/product-details/${productId}`}>
       <WrapperProduct galleryTitle={galleryTitle}>
         <ImageProduct src={productImg} />
         <ProductTitle>{productName}</ProductTitle>

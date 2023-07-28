@@ -60,7 +60,7 @@ const Home = () => {
             text={"Ver Consoles"}
             width={"130px"}
             height={"51px"}
-            to={"/allproducts/console/1"}
+            to={"/all-products/console/1"}
           />
         </BannerContent>
       </Banner>
@@ -72,7 +72,7 @@ const Home = () => {
             numberOfCards={numberOfCards()}
             linkComponent={
               <LinkAllProductsComponent
-                to={"/allproducts/star-wars/1"}
+                to={"/all-products/star-wars/1"}
               />
             }
           />
@@ -81,7 +81,7 @@ const Home = () => {
             galleryTitle={"Consoles"}
             numberOfCards={numberOfCards()}
             linkComponent={
-              <LinkAllProductsComponent to={"/allproducts/console/1"} />
+              <LinkAllProductsComponent to={"/all-products/console/1"} />
             }
           />
           <Gallery
@@ -89,7 +89,7 @@ const Home = () => {
             galleryTitle={"Diversos"}
             numberOfCards={numberOfCards()}
             linkComponent={
-              <LinkAllProductsComponent to={"/allproducts/others/1"} />
+              <LinkAllProductsComponent to={"/all-products/others/1"} />
             }
           />
         </SectionContent>
