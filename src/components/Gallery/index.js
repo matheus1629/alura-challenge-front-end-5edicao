@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 
 import ProductCard from "../ProductCard";
+import ErrorMessageAPI from "../ErrorMessageAPI";
 
 import {
   GalleryTitle,
@@ -19,6 +20,7 @@ const Gallery = ({
   ...props
 }) => {
   const [products, setProducts] = useState([]);
+  const [fetchError, setFetchError] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:5000/products${productCategory}`, {
@@ -31,7 +33,7 @@ const Gallery = ({
       .then((data) => {
         setProducts(data);
       })
-      .catch((err) => console.log(err));
+      .catch((error) => setFetchError(error));
   }, [productCategory]);
 
   const renderCards = (number) => {
@@ -53,7 +55,9 @@ const Gallery = ({
 
   return (
     <>
-      {products.length > 0 ? (
+      {fetchError ? (
+        <ErrorMessageAPI errorMessage={fetchError.message} />
+      ) : products.length > 0 ? (
         <WrapperGallery>
           <GalleryHeader>
             <GalleryTitle>{galleryTitle}</GalleryTitle>

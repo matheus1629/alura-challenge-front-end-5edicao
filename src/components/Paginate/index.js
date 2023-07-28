@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 
+import ErrorMessageAPI from "../ErrorMessageAPI";
 import ProductCard from "../ProductCard";
 
 import {
@@ -20,6 +21,8 @@ const Paginate = ({ category, title, page, ...props }) => {
   const [previousPage, setPreviousPage] = useState();
   const [nextPage, setNextPage] = useState();
   const [totalPages, setTotalPages] = useState();
+  const [fetchError, setFetchError] = useState(null);
+
   const itensPerPage = 8;
 
   useEffect(() => {
@@ -48,26 +51,18 @@ const Paginate = ({ category, title, page, ...props }) => {
       .then((data) => {
         setProducts(data);
       })
-      .catch((err) => console.log(err));
+      .catch((error) => setFetchError(error));
   }, [page, category]);
 
   const movePage = (number) => {
-    switch (number) {
-      case 1:
-        navigate(`/allproducts/${category}/${page + number}`);
-        break;
-      case -1:
-        navigate(`/allproducts/${category}/${page + number}`);
-        break;
-
-      default:
-        break;
-    }
+    navigate(`/allproducts/${category}/${page + number}`);
   };
 
   return (
     <>
-      {products.length > 0 ? (
+      {fetchError ? (
+        <ErrorMessageAPI errorMessage={fetchError.message} />
+      ) : products.length > 0 ? (
         <WrapperContent>
           <WrapperProducts style={props.wrapperStyle}>
             {products.length > 0 &&
