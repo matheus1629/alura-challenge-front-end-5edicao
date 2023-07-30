@@ -64,7 +64,7 @@ export const ProductPrice = styled.span`
   font-weight: 700;
 `;
 
-export const ProductLink = styled.a`
+export const ProductLink = styled.p`
   color: ${(props) => props.theme["blue"]};
   font-size: 1rem;
   font-weight: 700;
