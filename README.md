@@ -1,8 +1,6 @@
 <h1 align="center">
   <p>Alura Geek</p>
-  <img src=src\assets\logo.png>
-</h1>
-
+ 
 <img alt="React Badge" src="https://img.shields.io/badge/react-v18.2.0-%2361DAFB?logo=react&link=https%3A%2F%2Fgithub.com%2Ffacebook%2Freact%2Fblob%2Fmain%2FCHANGELOG.md%231820-june-14-2022">
 <img alt="Yarn Badge" src="https://img.shields.io/badge/yarn-v1.22.19-%232C8EBB?logo=yarn&link=https%3A%2F%2Fclassic.yarnpkg.com%2Flang%2Fen%2F"> <img alt="Styled Components Badge" src="https://img.shields.io/badge/styled_components-v6.0.0--rc.3-%23DB7093?logo=styledcomponents&link=https%3A%2F%2Fstyled-components.com%2Freleases"> <img alt="Static Badge" src="https://img.shields.io/badge/license-MIT-red">
 
