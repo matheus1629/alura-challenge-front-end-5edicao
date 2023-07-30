@@ -13,11 +13,10 @@
  <li><code>Filtrar produtos por categoria: </code>Filtrar os produtos pela pelas categorias disponíveis</li>
  <li><code>Adicionar produto: </code>Adicionar um produto respeitando as normas de validação do formulário</li>
  <li><code>Deletar produto: </code>Caso esteja logado, é possível deletar um produto</li>
- 
 
  </ul>
 
-<img src="https://i.imgur.com/mfOiRsN.gif" width="500" height="280" style="display: block; margin-left: auto; margin-right: auto;" />
+ <img src="https://github.com/matheus1629/alura-challenge-front-end-5edicao/assets/89110918/0fcc9733-457d-4376-b22d-0ee962f2271a" width="600" height="336"/>
 
 <h2>:open_file_folder: Acesso ao projeto</h2>
 <a href="https://matheus1629.github.io/alura-challenge-front-end-5edicao/">Veja o projeto em funcionamento</a>
