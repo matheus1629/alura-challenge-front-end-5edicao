@@ -10,15 +10,21 @@
 
 <h1>:hammer: Funcionalidades do projeto</h1>
  <ul> 
- <li><code>Filtrar produtos por categoria: </code>Filtrar os produtos pela pelas categorias disponíveis</li>
- <li><code>Adicionar produto: </code>Adicionar um produto respeitando as normas de validação do formulário</li>
- <li><code>Deletar produto: </code>Caso esteja logado, é possível deletar um produto</li>
-
+ <li><code>Filtrar produtos por categoria: </code>Filtrar os produtos pela pelas categorias disponíveis.</li>
+ <li><code>Adicionar produto: </code>Adicionar um produto respeitando as normas de validação do formulário.</li>
+ <li><code>Deletar produto: </code>Caso esteja logado, é possível deletar um produto.</li>
  </ul>
 
  <img src="https://github.com/matheus1629/alura-challenge-front-end-5edicao/assets/89110918/0fcc9733-457d-4376-b22d-0ee962f2271a" width="600" height="336"/>
 
 <h2>:open_file_folder: Acesso ao projeto</h2>
+
+Para rodar o projeto localmente, é preciso utilizar os seguintes comandos: 
+
+`yarn start`: subir o projeto na porta 3000.
+
+`yarn backend`: subir o json-server (fake API) na porta 5000.
+
 <a href="https://matheus1629.github.io/alura-challenge-front-end-5edicao/">Veja o projeto em funcionamento</a>
 
 
