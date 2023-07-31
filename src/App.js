@@ -10,29 +10,30 @@ import AddProduct from "./pages/AddProduct";
 import ProductDetails from "./pages/ProductDetails";
 import AllProducts from "./pages/AllProducts";
 import ErrorPageNotFound from "./pages/ErrorPageNotFound";
+import { ADD_PRODUCT, ALL_PRODUCTS, ERROR, HOME, LOGIN, PRODUCT_DETAILS } from "./routes/consts";
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path={HOME} element={<Home />} />
+        <Route path={LOGIN} element={<Login />} />
         <Route
-          path="/all-products/:category?/:page?"
+          path={`${ALL_PRODUCTS}/:category?/:page?`}
           element={<AllProducts />}
         />
 
         <Route
-          path="/add-product"
+          path={ADD_PRODUCT}
           element={
-            <RequireAuth loginPath="/login">
+            <RequireAuth loginPath={LOGIN}>
               <AddProduct />
             </RequireAuth>
           }
         />
-        <Route path="/product-details/:id?" element={<ProductDetails />} />
-        <Route path="*" element={<ErrorPageNotFound />} />
+        <Route path={`${PRODUCT_DETAILS}/:id?`} element={<ProductDetails />} />
+        <Route path={ERROR} element={<ErrorPageNotFound />} />
       </Routes>
       <Footer />
     </>

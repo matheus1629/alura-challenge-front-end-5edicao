@@ -6,6 +6,7 @@ import ButtonFill from "../../components/Button/ButtonFill/index";
 import Gallery from "../../components/Gallery";
 import banner from "../../assets/banner.jpg";
 import StyledLink from "../../components/Link/style";
+import { ALL_PRODUCTS } from "../../routes/consts";
 
 import {
   ArrowIcon,
@@ -62,7 +63,7 @@ const Home = () => {
             text={"Ver Consoles"}
             width={"130px"}
             height={"51px"}
-            to={"/all-products/console/1"}
+            to={`${ALL_PRODUCTS}/console/1`}
           />
         </BannerContent>
       </Banner>
@@ -73,7 +74,7 @@ const Home = () => {
             galleryTitle={"Star Wars"}
             numberOfCards={numberOfCards()}
             linkComponent={
-              <LinkAllProductsComponent to={"/all-products/star-wars/1"} />
+              <LinkAllProductsComponent to={`${ALL_PRODUCTS}/star-wars/1`} />
             }
           />
           <Gallery
@@ -81,7 +82,7 @@ const Home = () => {
             galleryTitle={"Consoles"}
             numberOfCards={numberOfCards()}
             linkComponent={
-              <LinkAllProductsComponent to={"/all-products/console/1"} />
+              <LinkAllProductsComponent to={`${ALL_PRODUCTS}/console/1`} />
             }
           />
           <Gallery
@@ -89,7 +90,7 @@ const Home = () => {
             galleryTitle={"Diversos"}
             numberOfCards={numberOfCards()}
             linkComponent={
-              <LinkAllProductsComponent to={"/all-products/others/1"} />
+              <LinkAllProductsComponent to={`${ALL_PRODUCTS}/others/1`} />
             }
           />
         </SectionContent>

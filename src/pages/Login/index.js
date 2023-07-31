@@ -17,6 +17,7 @@ import {
   LoginForm,
   InvalidDataError,
 } from "./style";
+import { ALL_PRODUCTS } from "../../routes/consts";
 
 const Login = () => {
   const [loginError, setLoginError] = useState("");
@@ -31,7 +32,7 @@ const Login = () => {
   } = useForm({ resolver: joiResolver(loginValidation) });
 
   if (isAuthenticated()) {
-    return <Navigate to="/products" replace />;
+    return <Navigate to={`${ALL_PRODUCTS}/all/1`} replace />;
   }
 
   const fetchUser = async (email) => {
@@ -63,7 +64,7 @@ const Login = () => {
         tokenType: "Bearer",
         authState: { email: users[0].email },
       });
-      navigate("/all-products/all/1");
+      navigate(`${ALL_PRODUCTS}/all/1`);
     } else {
       setLoginError("Email ou senha inválido!");
     }

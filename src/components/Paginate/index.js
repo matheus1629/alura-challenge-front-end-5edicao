@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import ErrorMessageAPI from "../ErrorMessageAPI";
 import ProductCard from "../ProductCard";
+import { ALL_PRODUCTS } from "../../routes/consts";
 
 import {
   WrapperProducts,
@@ -55,7 +56,7 @@ const Paginate = ({ category, title, page, ...props }) => {
   }, [page, category]);
 
   const movePage = (number) => {
-    navigate(`/all-products/${category}/${page + number}`);
+    navigate(`${ALL_PRODUCTS}/${category}/${page + number}`);
   };
 
   return (

@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import Paginate from "../../components/Paginate";
+import { ALL_PRODUCTS, PRODUCT_DETAILS } from "../../routes/consts";
+
 import {
   Header,
   Option,
@@ -7,8 +12,6 @@ import {
   Select,
   Title,
 } from "./style";
-import { useNavigate, useParams } from "react-router-dom";
-import Paginate from "../../components/Paginate";
 
 const AllProducts = () => {
   const navigate = useNavigate();
@@ -34,7 +37,7 @@ const AllProducts = () => {
   }, [category]);
 
   const changeCategory = (value) => {
-    navigate(`/all-products/${value}/1`);
+    navigate(`${ALL_PRODUCTS}/${value}/1`);
   };
 
   return (

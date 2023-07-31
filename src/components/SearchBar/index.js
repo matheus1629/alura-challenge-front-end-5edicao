@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { useLocation } from "react-router-dom";
+import { PRODUCT_DETAILS } from "../../routes/consts";
 
 import {
   SearchIcon,
@@ -66,7 +67,7 @@ const SearchBar = ({ width, height }) => {
             return (
               <SearchLink
                 classNeme="search-link"
-                to={`/product-details/${result.id}`}
+                to={`${PRODUCT_DETAILS}/${result.id}`}
               >
                 <SearchResultWrapper>
                   <SearchResultName>

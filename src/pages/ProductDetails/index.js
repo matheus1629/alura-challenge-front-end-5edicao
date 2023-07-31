@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import StyledLink from "../../components/Link/style";
 import Gallery from "../../components/Gallery";
+import MessageCard from "../../components/MessageCard";
+import { ALL_PRODUCTS } from "../../routes/consts";
 
 import {
   ArrowIcon,
@@ -21,7 +23,6 @@ import {
   Text,
   TrahsIcon,
 } from "./style";
-import MessageCard from "../../components/MessageCard";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -40,7 +41,8 @@ const ProductDetails = () => {
       .then((resp) => resp.json())
       .then((data) => {
         if (Object.keys(data).length === 0) {
-          navigate("/products");
+          console.log("fdfdfd");
+          navigate(`${ALL_PRODUCTS}/all/1`);
         } else {
           setProduct(data);
           setProductDeleted(false);
@@ -107,7 +109,7 @@ const ProductDetails = () => {
                 galleryTitle={"Produtos similares"}
                 wrapperStyle={{ flexWrap: "wrap" }}
                 linkComponent={
-                  <StyledLink to={`/all-products/${product.category}/1`}>
+                  <StyledLink to={`${ALL_PRODUCTS}/${product.category}/1`}>
                     <Text>Ver Tudo</Text>
                     <ArrowIcon />
                   </StyledLink>

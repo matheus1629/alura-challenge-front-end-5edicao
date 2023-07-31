@@ -6,6 +6,7 @@ import { useIsAuthenticated, useSignOut } from "react-auth-kit";
 import SearchBar from "../SearchBar";
 import logo from "../../assets/logo.png";
 import ButtonOutline from "../Button/ButtonOutline";
+import { ADD_PRODUCT, HOME, LOGIN } from "../../routes/consts";
 
 import {
   Logo,
@@ -21,7 +22,7 @@ const Header = () => {
   return (
     <WrapperHeader>
       <WrapperSerchBarLogo>
-        <Link to={"/"}>
+        <Link to={HOME}>
           <Logo alt="Logo Alura Geek" src={logo} />
         </Link>
         <SearchBar
@@ -35,7 +36,7 @@ const Header = () => {
           text={"Login"}
           width={"var(--button-width, 170px)"}
           height={"var(--button-height, 51px)"}
-          to="/login"
+          to={LOGIN}
         />
       ) : (
         <WrapperButtons>
@@ -43,14 +44,14 @@ const Header = () => {
             text={"Adicionar produto"}
             width={"var(--button-width, 170px)"}
             height={"var(--button-height, 51px)"}
-            to="/add-product"
-          />{" "}
+            to={ADD_PRODUCT}
+          />
           <ButtonOutline
             text={"Logout"}
             width={"var(--button-width, 170px)"}
             height={"var(--button-height, 51px)"}
             onClick={() => signOut()}
-            to="/"
+            to={HOME}
           />
         </WrapperButtons>
       )}
