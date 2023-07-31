@@ -25,9 +25,6 @@ Para rodar o projeto localmente, é preciso utilizar os seguintes comandos:
 
 `yarn backend`: subir o json-server (fake API) na porta 5000.
 
-<a href="https://matheus1629.github.io/alura-challenge-front-end-5edicao/">Veja o projeto em funcionamento</a>
-
-
 <h2>:hammer_and_wrench: Tecnologias utilizadas</h2>
 <ul>
     <li>React.js</li>
